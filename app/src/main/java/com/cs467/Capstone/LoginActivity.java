@@ -1,4 +1,4 @@
-package com.example.cs467.capstone;
+package com.cs467.Capstone;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -28,6 +28,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.example.cs467.capstone.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 			return;
 		}
 
-		getLoaderManager().initLoader(0, null, this);
+		//getLoaderManager().initLoader(0, null, this);
 	}
 
 	private boolean mayRequestContacts() {
