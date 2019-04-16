@@ -1,4 +1,4 @@
-package com.cs467.Capstone;
+package com.cs467.capstone;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
