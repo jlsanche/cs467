@@ -17,10 +17,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
-public class SIgnUpActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ProgressBar progressBar;
-    EditText editTextEmail, editTextPassword;
+    private ProgressBar progressBar;
+    private EditText editTextEmail, editTextPassword;
 
     private FirebaseAuth mAuth;
 
@@ -75,14 +75,14 @@ public class SIgnUpActivity extends AppCompatActivity implements View.OnClickLis
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
                     finish();
-                    startActivity(new Intent(SIgnUpActivity.this, ProfileActivity.class));
+                    startActivity(new Intent(SignUpActivity.this, ProfileActivity.class));
                 } else {
 
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),task.getException().getMessage() , Toast.LENGTH_SHORT).show();
                     }
 
                 }

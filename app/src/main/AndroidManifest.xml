@@ -15,7 +15,7 @@
 		tools:ignore="GoogleAppIndexingWarning">
 		<activity android:name="com.cs467.capstone.ProfileActivity">
 		</activity>
-		<activity android:name="com.cs467.capstone.SIgnUpActivity">
+		<activity android:name="com.cs467.capstone.SignUpActivity">
 		</activity>
 		<activity android:name="com.cs467.capstone.MainActivity">
 			<intent-filter>

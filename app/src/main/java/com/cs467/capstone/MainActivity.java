@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        if (password.length() < 6) {
-            editTextPassword.setError("Minimum lenght of password should be 6");
+        if (password.length() < 10) {
+            editTextPassword.setError("Minimum length of password is ten");
             editTextPassword.requestFocus();
             return;
         }
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.textViewSignup:
                 finish();
-                startActivity(new Intent(this, SIgnUpActivity.class));
+                startActivity(new Intent( this, SignUpActivity.class));
                 break;
 
             case R.id.buttonLogin:
