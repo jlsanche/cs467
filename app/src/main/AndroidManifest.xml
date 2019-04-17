@@ -3,9 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.cs467.capstone">
 	<!-- To auto-complete the email text field in the login form with the user's emails -->
-	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-	<uses-permission android:name="android.permission.READ_PROFILE"/>
-	<uses-permission android:name="android.permission.READ_CONTACTS"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
 
 	<application
 		android:allowBackup="true"
@@ -15,6 +13,10 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
 		tools:ignore="GoogleAppIndexingWarning">
+		<activity android:name="com.cs467.capstone.ProfileActivity">
+		</activity>
+		<activity android:name="com.cs467.capstone.SIgnUpActivity">
+		</activity>
 		<activity android:name="com.cs467.capstone.MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
