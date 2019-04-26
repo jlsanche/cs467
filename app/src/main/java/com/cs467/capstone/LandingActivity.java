@@ -25,6 +25,13 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
+        Button mRegisterButton = (Button) findViewById(R.id.register_button);
+        mRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToRegister();
+            }
+        });
 
     }
 
@@ -32,6 +39,13 @@ public class LandingActivity extends AppCompatActivity {
      * Go to Login page
      */
     private void goToLogin() {
+
+    }
+
+    /**
+     * Go to Register page
+     */
+    private void goToRegister() {
 
     }
 
