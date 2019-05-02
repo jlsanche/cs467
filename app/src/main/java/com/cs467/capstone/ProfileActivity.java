@@ -1,5 +1,6 @@
 package com.cs467.capstone;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,9 +36,12 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
+import static com.example.cs467.capstone.R.id.buttonSave;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private static final int CHOOSE_IMAGE = 101;
+    private static final String TAG = "profileActivity";
 
     TextView textView;
     ImageView imageView;
@@ -74,7 +79,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         loadUserInformation();
 
-        findViewById(R.id.buttonSave).setOnClickListener(new View.OnClickListener() {
+        findViewById(buttonSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
@@ -92,6 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
 
@@ -111,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
             } else {
-                textView.setText("Email Not Verified (Click to Verify)");
+                textView.setText("Verify Email");
                 textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -119,6 +125,7 @@ public class ProfileActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(ProfileActivity.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "User profile updated.");
                             }
                         });
                     }
@@ -154,6 +161,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "User profile updated.");
                             }
                         }
                     });
@@ -180,28 +188,64 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void uploadImageToFirebaseStorage() {
-        StorageReference profileImageRef =
+
+        final StorageReference profileImageRef =
                 FirebaseStorage.getInstance().getReference("profilepics/" + System.currentTimeMillis() + ".jpg");
 
-        if (uriProfileImage != null) {
-            progressBar.setVisibility(View.VISIBLE);
-            profileImageRef.putFile(uriProfileImage)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressBar.setVisibility(View.GONE);
-                            profileImageUrl = taskSnapshot.getMetadata().getReference().toString();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressBar.setVisibility(View.GONE);
-                            Toast.makeText(ProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
+//        if (uriProfileImage != null) {
+//            progressBar.setVisibility(View.VISIBLE);
+//            profileImageRef.putFile(uriProfileImage)
+//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                            progressBar.setVisibility(View.GONE);
+//                            profileImageUrl = taskSnapshot.getMetadata().getReference().toString();
+//                        }
+//                    })
+//                    .addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            progressBar.setVisibility(View.GONE);
+//                            Toast.makeText(ProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//        }
+
+
+        profileImageRef.putFile(uriProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                progressBar.setVisibility(View.GONE);
+
+                profileImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        profileImageUrl = uri.toString();
+
+                        Toast.makeText(getApplicationContext(), "Image Upload Successful", Toast.LENGTH_SHORT).show();
+
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -228,11 +272,15 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
     }
 
+
+
+
+
     private void showImageChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Profile Image"), CHOOSE_IMAGE);
+        startActivityForResult(Intent.createChooser(intent, ""), CHOOSE_IMAGE);
     }
 
 }
