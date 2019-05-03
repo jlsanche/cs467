@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Capstone</string>
+    <string name="app_name">Capstone: IC App</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
