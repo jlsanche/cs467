@@ -13,6 +13,8 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
 		tools:ignore="GoogleAppIndexingWarning">
+		<activity android:name="com.cs467.capstone.PasswordResetActivity">
+		</activity>
 		<activity android:name="com.cs467.capstone.ProfileActivity">
 		</activity>
 		<activity android:name="com.cs467.capstone.SignUpActivity">
