@@ -11,7 +11,10 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="title_activity_landing">LandingActivity</string>
     <string name="action_log_in">Log In</string>
     <string name="action_register">Register</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_chat">Chat/Forum</string>
+    <string name="action_advice">Tips/Advice</string>
+    <string name="action_myratedfoods">My Rated Foods</string>
 </resources>

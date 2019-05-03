@@ -50,6 +50,9 @@ public class LandingActivity extends AppCompatActivity {
      * Go to Register page
      */
     private void goToRegister() {
+        //TODO Change this from going to the homepage, this is just for testing purposes
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
 
     }
 
