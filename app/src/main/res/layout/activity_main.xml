@@ -70,6 +70,16 @@
 				android:textColor="@color/colorAccent" />
 
 			<TextView
+				android:id="@+id/textViewResetpassword"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="13dp"
+				android:text="Forgot password?"
+				android:textAlignment="center"
+				android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+				android:textColor="@color/colorAccent" />
+
+			<TextView
 				android:id="@+id/textViewSignup"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

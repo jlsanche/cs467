@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "";
     FirebaseAuth mAuth;
     EditText editTextEmail, editTextPassword;
     ProgressBar progressBar;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
+        findViewById(R.id.textViewResetpassword).setOnClickListener(this);
+
 
     }
 
@@ -83,6 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -104,7 +110,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonLogin:
                 userLogin();
                 break;
+
+            case R.id.textViewResetpassword:
+                startActivity(new Intent( this, PasswordResetActivity.class));
+
+                break;
         }
     }
+
+
 
 }
