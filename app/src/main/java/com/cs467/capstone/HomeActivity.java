@@ -11,6 +11,8 @@ import com.example.cs467.capstone.R;
 
 public class HomeActivity extends AppCompatActivity {
     // TODO Welcome User? And Search Bar?
+
+
     // TODO perhaps this can be a local variable
     private View mHomeFormView;
 
@@ -20,14 +22,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         mHomeFormView = findViewById(R.id.home_view);
-
-        /*Button mLogInButton = (Button) findViewById(R.id.log_in_button);
-        mLogInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToLogin();
-            }
-        }); */
 
         //MyRatedFoods
         Button mMyRatedFoodsButton = (Button) findViewById(R.id.myratedfoods_button);

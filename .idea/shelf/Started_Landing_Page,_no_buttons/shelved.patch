@@ -1,0 +1,83 @@
+Index: app/src/main/java/com/cs467/capstone/LandingActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.cs467.capstone;\n\nimport android.os.Bundle;\nimport android.support.design.widget.FloatingActionButton;\nimport android.support.design.widget.Snackbar;\nimport android.support.v7.app.AppCompatActivity;\nimport android.support.v7.widget.Toolbar;\nimport android.view.View;\nimport com.example.cs467.capstone.R;\n\npublic class LandingActivity extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_landing);\n        Toolbar toolbar = findViewById(R.id.toolbar);\n        setSupportActionBar(toolbar);\n\n        FloatingActionButton fab = findViewById(R.id.fab);\n        fab.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View view) {\n                Snackbar.make(view, \"Replace with your own action\", Snackbar.LENGTH_LONG)\n                        .setAction(\"Action\", null).show();\n            }\n        });\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/cs467/capstone/LandingActivity.java	(date 1556225494000)
++++ app/src/main/java/com/cs467/capstone/LandingActivity.java	(date 1556301773000)
+@@ -6,6 +6,7 @@
+ import android.support.v7.app.AppCompatActivity;
+ import android.support.v7.widget.Toolbar;
+ import android.view.View;
++import android.widget.Button;
+ import com.example.cs467.capstone.R;
+ 
+ public class LandingActivity extends AppCompatActivity {
+@@ -17,6 +18,7 @@
+         Toolbar toolbar = findViewById(R.id.toolbar);
+         setSupportActionBar(toolbar);
+ 
++        /*
+         FloatingActionButton fab = findViewById(R.id.fab);
+         fab.setOnClickListener(new View.OnClickListener() {
+             @Override
+@@ -25,6 +27,20 @@
+                         .setAction("Action", null).show();
+             }
+         });
++        */
++
++
++        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
++        mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                //does a thing
++            }
++        });
++
++
++
++
+     }
+ 
+ }
+Index: app/src/main/res/layout/activity_landing.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.design.widget.CoordinatorLayout\n        xmlns:android=\"http://schemas.android.com/apk/res/android\"\n        xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n        xmlns:tools=\"http://schemas.android.com/tools\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        tools:context=\".LandingActivity\">\n\n    <android.support.design.widget.AppBarLayout\n            android:layout_height=\"wrap_content\"\n            android:layout_width=\"match_parent\"\n            android:theme=\"@style/AppTheme.AppBarOverlay\">\n\n        <android.support.v7.widget.Toolbar\n                android:id=\"@+id/toolbar\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"?attr/actionBarSize\"\n                android:background=\"?attr/colorPrimary\"\n                app:popupTheme=\"@style/AppTheme.PopupOverlay\"/>\n\n    </android.support.design.widget.AppBarLayout>\n\n    <include layout=\"@layout/content_landing\"/>\n\n    <android.support.design.widget.FloatingActionButton\n            android:id=\"@+id/fab\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_gravity=\"bottom|end\"\n            android:layout_margin=\"@dimen/fab_margin\"\n            app:srcCompat=\"@android:drawable/ic_dialog_email\"/>\n\n</android.support.design.widget.CoordinatorLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_landing.xml	(date 1556225494000)
++++ app/src/main/res/layout/activity_landing.xml	(date 1556301715000)
+@@ -23,6 +23,7 @@
+ 
+     <include layout="@layout/content_landing"/>
+ 
++    <!--
+     <android.support.design.widget.FloatingActionButton
+             android:id="@+id/fab"
+             android:layout_width="wrap_content"
+@@ -30,5 +31,18 @@
+             android:layout_gravity="bottom|end"
+             android:layout_margin="@dimen/fab_margin"
+             app:srcCompat="@android:drawable/ic_dialog_email"/>
++    -->
++
++
++
++    <Button
++            android:id="@+id/email_sign_in_button"
++            style="?android:textAppearanceSmall"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="16dp"
++            android:text="@string/action_sign_in"
++            android:textStyle="bold"/>
++
+ 
+ </android.support.design.widget.CoordinatorLayout>
+\ No newline at end of file
