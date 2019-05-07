@@ -17,4 +17,5 @@
     <string name="action_chat">Chat/Forum</string>
     <string name="action_advice">Tips/Advice</string>
     <string name="action_myratedfoods">My Rated Foods</string>
+    <string name="search_title">Search foods...</string>
 </resources>

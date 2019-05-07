@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+            <!-- the buttons -->
             <Button
                     android:id="@+id/myratedfoods_button"
                     style="?android:textAppearanceSmall"

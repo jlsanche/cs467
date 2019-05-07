@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the search bar
+            https://developer.android.com/training/search/setup#java -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:compat="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/search"
+          android:title="@string/search_title"
+          compat:showAsAction="collapseActionView|ifRoom"
+          compat:actionViewClass="android.widget.SearchView" />
+</menu>

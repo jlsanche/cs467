@@ -3,6 +3,8 @@ package com.cs467.capstone;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.MenuInflater;
+import android.view.Menu;
 import android.widget.Button;
 import android.content.Intent;
 import com.cs467.capstone.LoginActivity;
@@ -10,11 +12,22 @@ import com.example.cs467.capstone.R;
 
 
 public class HomeActivity extends AppCompatActivity {
-    // TODO Welcome User? And Search Bar?
+    // TODO Welcome User?
 
 
     // TODO perhaps this can be a local variable
-    private View mHomeFormView;
+     private View mHomeFormView;
+
+    // TODO Search Bar?
+     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+         //inflater.inflate(R.layout.options_menu, menu);
+
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
