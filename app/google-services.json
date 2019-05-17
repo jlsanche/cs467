@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "389600817447",
+    "firebase_url": "https://capstone-bdce2.firebaseio.com",
+    "project_id": "capstone-bdce2",
+    "storage_bucket": "capstone-bdce2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389600817447:android:0c76fa35ac08a0be",
+        "android_client_info": {
+          "package_name": "com.cs467.capstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389600817447-76oc356m0p5sr68ape384hqf37tpi7t8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cs467.capstone",
+            "certificate_hash": "a0deb6abd2a463dedf6d02c3be544d6998622016"
+          }
+        },
+        {
+          "client_id": "389600817447-phirkllofdjf8k4f6b73j9r8u7jnm93i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8fSAVRN4d3Aq6DpnwPPATqkHTXz8Bgss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389600817447-phirkllofdjf8k4f6b73j9r8u7jnm93i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389600817447:android:cc295746bf128809",
+        "android_client_info": {
+          "package_name": "com.example.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389600817447-phirkllofdjf8k4f6b73j9r8u7jnm93i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8fSAVRN4d3Aq6DpnwPPATqkHTXz8Bgss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389600817447-phirkllofdjf8k4f6b73j9r8u7jnm93i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
