@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
-import com.cs467.capstone.LoginActivity;
+import com.cs467.capstone.SignUpActivity;
 import com.example.cs467.capstone.R;
 
 public class LandingActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class LandingActivity extends AppCompatActivity {
         mLogInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToLogin();
+                goToSignup();
             }
         });
 
@@ -40,8 +40,8 @@ public class LandingActivity extends AppCompatActivity {
     /*
      * Go to Login page
      */
-    private void goToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
+    private void goToSignup() {
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
 
     }
