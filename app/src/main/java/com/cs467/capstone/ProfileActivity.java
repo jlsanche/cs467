@@ -3,6 +3,7 @@ package com.cs467.capstone;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -64,6 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
 
         editText =  findViewById(R.id.editTextDisplayName);
         imageView = findViewById(R.id.imageView);
@@ -267,6 +269,14 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MainActivity.class));
 
                 break;
+
+            case R.id.menuSettings:
+
+                finish();
+                startActivity(new Intent(this, SettingsActivity.class));
+
+                break;
+
         }
 
         return true;
