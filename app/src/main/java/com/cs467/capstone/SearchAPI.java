@@ -2,7 +2,6 @@ package com.example.testapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -103,8 +102,8 @@ public class SearchAPI extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        //return super.onCreateOptionsMenu(menu);
+        inflater.inflate(R.menu.menu_home, menu);
+        //return super.onCreateOptionsMenu(menu_home);
         return true;
     }
 
