@@ -3,7 +3,10 @@ package com.cs467.capstone;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+<<<<<<< HEAD
 import android.graphics.Color;
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,7 +18,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+<<<<<<< HEAD
 import android.widget.*;
+=======
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 import com.bumptech.glide.Glide;
 import com.example.cs467.capstone.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +44,11 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
+=======
+import static com.example.cs467.capstone.R.id.buttonSave;
+
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 public class ProfileActivity extends AppCompatActivity {
 
     private static final int CHOOSE_IMAGE = 101;
@@ -57,15 +75,21 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< HEAD
         toolbar.setTitleTextColor(Color.WHITE);
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 
         editText =  findViewById(R.id.editTextDisplayName);
         imageView = findViewById(R.id.imageView);
         progressBar =  findViewById(R.id.progressbar);
         textView =  findViewById(R.id.textViewVerified);
 
+<<<<<<< HEAD
         loadUserInformation();
 
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,16 +97,25 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
 
 
         findViewById(R.id.buttonSave).setOnClickListener(new View.OnClickListener() {
+=======
+        loadUserInformation();
+
+        findViewById(buttonSave).setOnClickListener(new View.OnClickListener() {
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
             @Override
             public void onClick(View view) {
                 saveUserInformation();
             }
         });
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
     }
 
 
@@ -190,6 +223,27 @@ public class ProfileActivity extends AppCompatActivity {
         final StorageReference profileImageRef =
                 FirebaseStorage.getInstance().getReference("profilepics/" + System.currentTimeMillis() + ".jpg");
 
+<<<<<<< HEAD
+=======
+//        if (uriProfileImage != null) {
+//            progressBar.setVisibility(View.VISIBLE);
+//            profileImageRef.putFile(uriProfileImage)
+//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                            progressBar.setVisibility(View.GONE);
+//                            profileImageUrl = taskSnapshot.getMetadata().getReference().toString();
+//                        }
+//                    })
+//                    .addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            progressBar.setVisibility(View.GONE);
+//                            Toast.makeText(ProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//        }
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 
 
         profileImageRef.putFile(uriProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -247,6 +301,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MainActivity.class));
 
                 break;
+<<<<<<< HEAD
 
             case R.id.menuSettings:
 
@@ -254,6 +309,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                 break;
 
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
         }
 
         return true;

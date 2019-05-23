@@ -13,7 +13,10 @@
 # Built application files
 *.apk
 *.ap_
+<<<<<<< HEAD
 *.mov
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 
 # Files for the ART/Dalvik VM
 *.dex

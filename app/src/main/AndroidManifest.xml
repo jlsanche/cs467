@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+<<<<<<< HEAD
 =======
 	<application
 		android:allowBackup="true"
@@ -38,6 +39,8 @@
 		<activity android:name="com.cs467.capstone.SettingsActivity">
 		</activity>
 >>>>>>> jls/feature-settings
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 		<activity android:name="com.cs467.capstone.PasswordResetActivity">
 		</activity>
 		<activity android:name="com.cs467.capstone.ProfileActivity">

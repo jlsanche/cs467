@@ -20,6 +20,7 @@
     <string name="food_name">My Rated Foods</string>
     <string name="chat_name">Chat Forum</string>
     <string name="tips_name">Tips</string>
+<<<<<<< HEAD
 =======
 	<!-- Strings related to login -->
 
@@ -29,4 +30,6 @@
 
 
 >>>>>>> jls/feature-settings
+=======
+>>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 </resources>
