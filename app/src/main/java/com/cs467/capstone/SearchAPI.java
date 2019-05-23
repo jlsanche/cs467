@@ -2,10 +2,11 @@ package com.example.testapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
+import android.support.v7.widget.Toolbar;
+import android.view.*;
 import android.widget.*;
 import com.android.volley.*;
 import com.android.volley.toolbox.StringRequest;
@@ -17,7 +18,7 @@ public class SearchAPI extends AppCompatActivity {
     EditText searchBar;
     Button searchButton;
     TextView responseResult;
-    //Toolbar menu = (Toolbar) findViewById(R.id.toolbar);
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class SearchAPI extends AppCompatActivity {
 
         searchBar = (EditText) findViewById(R.id.search);
         searchButton = (Button) findViewById(R.id.btnSearch);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         final TableLayout table = (TableLayout) findViewById(R.id.displayLinear);
         final TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -97,7 +100,50 @@ public class SearchAPI extends AppCompatActivity {
         });
     }
 
-   public void buttonClicked(String food) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        //return super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.settings:
+                Toast.makeText( getApplicationContext(),"settings", Toast.LENGTH_SHORT).show();
+                //Intent settings = new Intent(this, Settings.class);
+                //startActivity(settings);
+                break;
+            case R.id.profile:
+                Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
+                //Intent profile = new Intent(this, Profile.class);
+                //startActivity(profile);
+                break;
+            case R.id.food:
+                Intent rated_food = new Intent(this, DisplayAllFood.class);
+                startActivity(rated_food);
+                break;
+            case R.id.chat:
+                Toast.makeText( getApplicationContext(),"chat forum", Toast.LENGTH_SHORT).show();
+                //Intent chat = new Intent(this, Chat.class);
+                //startActivity(chat);
+                break;
+            case R.id.tips:
+                Toast.makeText( getApplicationContext(),"tips", Toast.LENGTH_SHORT).show();
+                //Intent tips = new Intent(this, Profile.class);
+                //startActivity(tips);
+                break;
+            default:
+
+        }
+
+        //return super.onOptionsItemSelected(item);
+        return true;
+    }
+
+    public void buttonClicked(String food) {
        Intent intent = new Intent(this, AddFoodActivity.class);
        intent.putExtra("value", food);
        startActivity(intent);

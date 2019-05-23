@@ -6,7 +6,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    <!-- Custom theme -->
+      <style name="CustomToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+          <item name="android:background">@color/colorPrimary</item>
+          <item name="colorControlHighlight">@color/colorPrimaryDark</item>
     </style>
+
+    <!-- menu item theme -->
+    <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">#d3d3d3</item>
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4dp</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
