@@ -4,37 +4,43 @@
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
                 android:gravity="center"
                 android:id="@+id/layout"
                 android:background="#e0e0e0">
 
+    <include
+            layout="@layout/activity_toolbar"
+            android:id="@+id/toolbar">
+    </include>
+
     <TextView
             android:text="My Rated Foods"
-            android:textSize="45dp"
+            android:textSize="35dp"
             android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:textColor="#000000"
             android:layout_width="349dp"
             android:layout_height="wrap_content"
             android:id="@+id/title"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginTop="110dp"
+            android:layout_marginBottom="30dp"/>
 
     <Button
             android:text="All"
-            android:layout_width="61dp"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:id="@+id/buttonAll"
             android:layout_below="@+id/title"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginBottom="10dp"
             android:background="#000000"
             android:textColor="#ffffff"/>
 
     <Button
             android:text="Good"
-            android:layout_width="67dp"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:id="@+id/buttonGood"
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/buttonAll"
@@ -44,8 +50,8 @@
 
     <Button
             android:text="OK"
-            android:layout_width="59dp"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:id="@+id/buttonOK"
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/buttonGood"
@@ -55,8 +61,8 @@
 
     <Button
             android:text="Bad"
-            android:layout_width="58dp"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:id="@+id/buttonBad"
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/buttonOK"
@@ -67,18 +73,21 @@
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view"
             android:layout_gravity="center"
-            android:layout_width="350dp"
-            android:layout_height="600dp"
+            android:layout_width="356dp"
+            android:layout_height="480dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="25dp"
             card_view:cardCornerRadius="10dp"
             android:layout_below="@+id/buttonAll"
-            card_view:cardBackgroundColor="#aaaaaa">
+            card_view:cardBackgroundColor="#aaaaaa" android:layout_marginTop="7dp">
 
         <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/displayLinear"
                 android:layout_below="@+id/buttonAll"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:shrinkColumns="0">
 
 
             <TableRow

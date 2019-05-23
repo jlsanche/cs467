@@ -47,7 +47,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 toast.show();
 
                 Button returnButton = new Button(getApplicationContext());
-                returnButton.setText("Return to search");
+                returnButton.setText("Return home");
                 returnButton.setGravity(Gravity.CENTER);
                 returnButton.setTextColor(0xFF000000);
                 lp.addRule(RelativeLayout.BELOW, submit.getId());

@@ -1,10 +1,15 @@
 package com.example.testapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import com.google.firebase.database.*;
@@ -19,6 +24,7 @@ public class DisplayAllFood extends AppCompatActivity {
     Button seeGood;
     Button seeOK;
     Button seeBad;
+    Toolbar toolbar;
 
     protected DatabaseReference db;
     Context context = null;
@@ -32,6 +38,8 @@ public class DisplayAllFood extends AppCompatActivity {
         seeGood = (Button) findViewById(R.id.buttonGood);
         seeOK = (Button) findViewById(R.id.buttonOK);
         seeBad = (Button) findViewById(R.id.buttonBad);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         final TableLayout table = (TableLayout) findViewById(R.id.displayLinear);
         context = getApplicationContext();
@@ -43,7 +51,7 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference("/Ingredients/");
+                db = FirebaseDatabase.getInstance().getReference();
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -87,7 +95,7 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference("/Ingredients/");
+                db = FirebaseDatabase.getInstance().getReference();
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -100,7 +108,7 @@ public class DisplayAllFood extends AppCompatActivity {
                             String name = String.valueOf(dsp.child("name").getValue());
                             String rating = String.valueOf(dsp.child("rating").getValue());
 
-                            if(rating.equals("good")) {
+                            if(rating.equals("Good")) {
                                 TableRow row = new TableRow(context);
                                 row.setLayoutParams(lp);
 
@@ -133,7 +141,7 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference("/Ingredients/");
+                db = FirebaseDatabase.getInstance().getReference();
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -146,7 +154,7 @@ public class DisplayAllFood extends AppCompatActivity {
                             String name = String.valueOf(dsp.child("name").getValue());
                             String rating = String.valueOf(dsp.child("rating").getValue());
 
-                            if(rating.equals("okay")) {
+                            if(rating.equals("Okay")) {
                                 TableRow row = new TableRow(context);
                                 row.setLayoutParams(lp);
 
@@ -179,7 +187,7 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference("/Ingredients/");
+                db = FirebaseDatabase.getInstance().getReference();
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -192,7 +200,7 @@ public class DisplayAllFood extends AppCompatActivity {
                             String name = String.valueOf(dsp.child("name").getValue());
                             String rating = String.valueOf(dsp.child("rating").getValue());
 
-                            if(rating.equals("bad")) {
+                            if(rating.equals("Bad")) {
                                 TableRow row = new TableRow(context);
                                 row.setLayoutParams(lp);
 
@@ -218,5 +226,48 @@ public class DisplayAllFood extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_rated_food, menu);
+        //return super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.settings:
+                Toast.makeText( getApplicationContext(),"settings", Toast.LENGTH_SHORT).show();
+                //Intent settings = new Intent(this, Settings.class);
+                //startActivity(settings);
+                break;
+            case R.id.profile:
+                Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
+                //Intent profile = new Intent(this, Profile.class);
+                //startActivity(profile);
+                break;
+            case R.id.home:
+                Intent home = new Intent(this, SearchAPI.class);
+                startActivity(home);
+                break;
+            case R.id.chat:
+                Toast.makeText( getApplicationContext(),"chat forum", Toast.LENGTH_SHORT).show();
+                //Intent chat = new Intent(this, Chat.class);
+                //startActivity(chat);
+                break;
+            case R.id.tips:
+                Toast.makeText( getApplicationContext(),"tips", Toast.LENGTH_SHORT).show();
+                //Intent tips = new Intent(this, Profile.class);
+                //startActivity(tips);
+                break;
+            default:
+
+        }
+
+        //return super.onOptionsItemSelected(item);
+        return true;
     }
 }

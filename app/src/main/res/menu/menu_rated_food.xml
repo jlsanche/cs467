@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/settings"
+            android:title="Settings"
+            app:showAsAction="never"></item>
+
+    <item
+            android:id="@+id/profile"
+            android:title="Profile"
+            app:showAsAction="never"></item>
+
+    <item
+            android:id="@+id/home"
+            android:title="Home"
+            app:showAsAction="never"></item>
+
+    <item
+            android:id="@+id/chat"
+            android:title="Chat Forum"
+            app:showAsAction="never"></item>
+
+    <item
+            android:id="@+id/tips"
+            android:title="Tips"
+            app:showAsAction="never"></item>
+
+</menu>

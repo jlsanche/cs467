@@ -14,4 +14,9 @@
     <string name="title_activity_landing">LandingActivity</string>
     <string name="action_log_in">Log In</string>
     <string name="action_register">Register</string>
+    <string name="settings_name">Settings</string>
+    <string name="profile_name">Profile</string>
+    <string name="food_name">My Rated Foods</string>
+    <string name="chat_name">Chat Forum</string>
+    <string name="tips_name">Tips</string>
 </resources>

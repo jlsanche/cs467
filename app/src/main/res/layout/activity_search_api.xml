@@ -3,22 +3,30 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
                 android:gravity="center">
+
+    <include
+            layout="@layout/activity_toolbar"
+            android:id="@+id/toolbar">
+    </include>
 
     <EditText
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="200dp"
             android:hint="Search"/>
 
     <Button
             android:id="@+id/btnSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/search"
-            android:layout_marginTop="15dp"
+            android:textSize="12dp"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="310dp"
             android:text="Search"/>
 
     <TableLayout
@@ -27,38 +35,17 @@
             android:id="@+id/displayLinear"
             android:layout_below="@+id/btnSearch"
             android:orientation="vertical"
-            android:shrinkColumns="0">
+            android:shrinkColumns="0"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="30dp">
 
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-            <!--
-            <TextView
-                    android:text="Name"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:paddingBottom="10dp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="20dp"
-                    android:layout_column="0"/>
--->
         </TableRow>
 
     </TableLayout>
 
-    <!--
-    <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:theme="?attr/actionBarTheme"
-            android:minHeight="?attr/actionBarSize"
-            android:id="@+id/toolbar"/>
-    -->
-
-
 </RelativeLayout>
+
