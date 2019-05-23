@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
-	<CheckBoxPreference
-		android:key="test"
-		android:title="Test"
-		android:summary="this is a test" />
+
+	<SwitchPreference
+		android:key="notifications"
+		android:title="Enable message notifications"/>
+
+	<SwitchPreference
+		android:key="Lock App"
+		android:title="protect your data with a password"/>
+
+	<Preference
+		android:key="delete"
+		android:title="Delete your account"
+		android:summary="Delete all your data and account"/>
+
+	<Preference
+		android:key="feedback"
+		android:title="Send feedback"
+		android:summary="Report technical issues or suggest new features"/>
+
+	<Preference
+		android:key="about"
+		android:title="About Mizar App"
+		android:summary="Version 0.5"/>
 
 
 

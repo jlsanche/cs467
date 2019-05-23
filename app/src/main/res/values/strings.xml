@@ -2,4 +2,10 @@
 	<string name="app_name">Capstone</string>
 
 	<!-- Strings related to login -->
+
+	<string name="choose_email_client">Choose email client</string>
+	<string name="key_send_feedback">key_send_feedback</string>
+	<string name="key_messages">key_messages</string>
+
+
 </resources>
