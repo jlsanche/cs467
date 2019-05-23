@@ -3,6 +3,7 @@ package com.cs467.capstone;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,13 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
-
+import android.widget.*;
 import com.bumptech.glide.Glide;
 import com.example.cs467.capstone.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,8 +30,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-
-import static com.example.cs467.capstone.R.id.buttonSave;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -64,11 +57,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
 
         editText =  findViewById(R.id.editTextDisplayName);
         imageView = findViewById(R.id.imageView);
         progressBar =  findViewById(R.id.progressbar);
         textView =  findViewById(R.id.textViewVerified);
+
+        loadUserInformation();
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +73,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        loadUserInformation();
 
-        findViewById(buttonSave).setOnClickListener(new View.OnClickListener() {
+
+        findViewById(R.id.buttonSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
             }
         });
+
+
     }
 
 
@@ -192,24 +190,6 @@ public class ProfileActivity extends AppCompatActivity {
         final StorageReference profileImageRef =
                 FirebaseStorage.getInstance().getReference("profilepics/" + System.currentTimeMillis() + ".jpg");
 
-//        if (uriProfileImage != null) {
-//            progressBar.setVisibility(View.VISIBLE);
-//            profileImageRef.putFile(uriProfileImage)
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            progressBar.setVisibility(View.GONE);
-//                            profileImageUrl = taskSnapshot.getMetadata().getReference().toString();
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            progressBar.setVisibility(View.GONE);
-//                            Toast.makeText(ProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//        }
 
 
         profileImageRef.putFile(uriProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -267,6 +247,13 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MainActivity.class));
 
                 break;
+
+            case R.id.menuSettings:
+
+                startActivity(new Intent(this, SettingsActivity.class));
+
+                break;
+
         }
 
         return true;
