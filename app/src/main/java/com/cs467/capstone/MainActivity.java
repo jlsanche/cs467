@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
                     finish();
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(MainActivity.this, SearchAPI.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.buttonLogin:
                 userLogin();
+
                 break;
 
             case R.id.textViewResetpassword:

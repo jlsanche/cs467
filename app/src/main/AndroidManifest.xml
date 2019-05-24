@@ -26,6 +26,11 @@
 		</activity>
 		<activity android:name="com.cs467.capstone.SignUpActivity">
 		</activity>
+
+		<activity android:name="com.cs467.capstone.SearchAPI">
+		</activity>
+
+
 		<activity android:name="com.cs467.capstone.MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>

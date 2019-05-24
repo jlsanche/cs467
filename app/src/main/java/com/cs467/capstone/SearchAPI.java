@@ -133,6 +133,8 @@ public class SearchAPI extends AppCompatActivity {
                 Toast.makeText( getApplicationContext(),"tips", Toast.LENGTH_SHORT).show();
                 //Intent tips = new Intent(this, Profile.class);
                 //startActivity(tips);
+
+
                 break;
             default:
 

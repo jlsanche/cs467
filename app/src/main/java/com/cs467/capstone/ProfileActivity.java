@@ -80,6 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         loadUserInformation();
 
         findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
@@ -88,6 +89,8 @@ public class ProfileActivity extends AppCompatActivity {
                 saveUserInformation();
             }
         });
+
+
     }
 
 
@@ -269,6 +272,12 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
 
+                break;
+
+            case R.id.homeButton:
+
+                finish();
+                startActivity(new Intent(this, SearchAPI.class));
                 break;
         }
 
