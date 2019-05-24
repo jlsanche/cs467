@@ -117,8 +117,8 @@ public class SearchAPI extends AppCompatActivity {
                 break;
             case R.id.profile:
                 Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
-                //Intent profile = new Intent(this, Profile.class);
-                //startActivity(profile);
+                Intent profile = new Intent(SearchAPI.this, ProfileActivity.class);
+                startActivity(profile);
                 break;
             case R.id.food:
                 Intent rated_food = new Intent(this, DisplayAllFood.class);
