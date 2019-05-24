@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.cs467.capstone;
 
 public class Measures {
     String uri;
