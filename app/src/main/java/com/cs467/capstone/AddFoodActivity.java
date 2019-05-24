@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.*;
+import com.example.cs467.capstone.R;
 
 public class AddFoodActivity extends AppCompatActivity {
 

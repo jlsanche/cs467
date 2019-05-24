@@ -1,7 +1,5 @@
 <resources>
 	<string name="app_name">Capstone</string>
-
-<<<<<<< HEAD
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -15,21 +13,16 @@
     <string name="title_activity_landing">LandingActivity</string>
     <string name="action_log_in">Log In</string>
     <string name="action_register">Register</string>
+    <string name="action_settings">Settings</string>
     <string name="settings_name">Settings</string>
     <string name="profile_name">Profile</string>
     <string name="food_name">My Rated Foods</string>
     <string name="chat_name">Chat Forum</string>
     <string name="tips_name">Tips</string>
-<<<<<<< HEAD
-=======
 	<!-- Strings related to login -->
 
 	<string name="choose_email_client">Choose email client</string>
 	<string name="key_send_feedback">key_send_feedback</string>
 	<string name="key_messages">key_messages</string>
 
-
->>>>>>> jls/feature-settings
-=======
->>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 </resources>

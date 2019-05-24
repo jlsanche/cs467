@@ -1,15 +1,9 @@
 package com.cs467.capstone;
 
 import android.content.Intent;
-<<<<<<< HEAD
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-=======
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
->>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -43,12 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewResetpassword).setOnClickListener(this);
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 8d0081fabf26281b74f9df65429e0c6f03da6105
     }
 
     private void userLogin() {
