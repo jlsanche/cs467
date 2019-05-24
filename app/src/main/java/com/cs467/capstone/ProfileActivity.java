@@ -14,15 +14,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
-
+import android.widget.*;
 import com.bumptech.glide.Glide;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,8 +28,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-
-
 
 
 public class ProfileActivity extends AppCompatActivity {
@@ -83,12 +74,24 @@ public class ProfileActivity extends AppCompatActivity {
 
         loadUserInformation();
 
+
         findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
             }
         });
+
+
+        findViewById(R.id.homeButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(ProfileActivity.this, SearchAPI.class));
+            }
+        });
+
+
 
 
     }
@@ -102,6 +105,10 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         }
     }
+
+
+
+
 
     @SuppressLint("SetTextI18n")
     private void loadUserInformation() {
@@ -253,6 +260,9 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -274,11 +284,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 break;
 
-            case R.id.homeButton:
 
-                finish();
-                startActivity(new Intent(this, SearchAPI.class));
-                break;
         }
 
         return true;
@@ -294,5 +300,6 @@ public class ProfileActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, ""), CHOOSE_IMAGE);
     }
+
 
 }
