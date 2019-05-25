@@ -126,8 +126,8 @@ public class SearchAPI extends AppCompatActivity {
                 break;
             case R.id.chat:
                 Toast.makeText( getApplicationContext(),"chat forum", Toast.LENGTH_SHORT).show();
-                //Intent chat = new Intent(this, Chat.class);
-                //startActivity(chat);
+                Intent chat = new Intent(this, LatestMessagesActivity.class);
+                startActivity(chat);
                 break;
             case R.id.tips:
                 Toast.makeText( getApplicationContext(),"tips", Toast.LENGTH_SHORT).show();

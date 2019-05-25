@@ -234,7 +234,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         profileImageUrl = uri.toString();
 
-                        Toast.makeText(getApplicationContext(), "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
 
 
 
@@ -282,6 +282,11 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MainActivity.class));
 
                 break;
+
+            case R.id.menuSettings:
+
+              finish();
+              startActivity(new Intent(ProfileActivity.this, SettingsActivity.class));
 
 
         }
