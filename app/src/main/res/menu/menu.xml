@@ -10,9 +10,5 @@
 		android:id="@+id/menuSettings"
 		android:title="App Settings"/>
 
-	<item
-		android:id="@+id/menuHome"
-		android:title="Home"/>
-
 
 </menu>

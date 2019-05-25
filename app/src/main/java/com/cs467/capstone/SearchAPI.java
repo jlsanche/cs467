@@ -111,12 +111,12 @@ public class SearchAPI extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.settings:
-                Toast.makeText( getApplicationContext(),"settings", Toast.LENGTH_SHORT).show();
+
                 Intent settings = new Intent(SearchAPI.this, SettingsActivity.class);
                 startActivity(settings);
                 break;
             case R.id.profile:
-                Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
+
                 Intent profile = new Intent(SearchAPI.this, ProfileActivity.class);
                 startActivity(profile);
                 break;

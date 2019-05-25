@@ -238,14 +238,14 @@ public class DisplayAllFood extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.settings:
-                Toast.makeText( getApplicationContext(),"settings", Toast.LENGTH_SHORT).show();
-                //Intent settings = new Intent(this, Settings.class);
-                //startActivity(settings);
+                //Toast.makeText( getApplicationContext(),"settings", Toast.LENGTH_SHORT).show();
+                Intent settings = new Intent(this, SettingsActivity.class);
+                startActivity(settings);
                 break;
             case R.id.profile:
-                Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
-                //Intent profile = new Intent(this, Profile.class);
-                //startActivity(profile);
+                //Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
+                Intent profile = new Intent(this, ProfileActivity.class);
+                startActivity(profile);
                 break;
             case R.id.home:
                 Intent home = new Intent(this, SearchAPI.class);
