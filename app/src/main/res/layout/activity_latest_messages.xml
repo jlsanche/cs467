@@ -10,7 +10,7 @@
 
 
 
-	<android.support.v7.widget.Toolbar
+	<androidx.appcompat.widget.Toolbar
 		android:id="@+id/chatToolbar"
 		android:orientation="vertical"
 		android:layout_width="match_parent"

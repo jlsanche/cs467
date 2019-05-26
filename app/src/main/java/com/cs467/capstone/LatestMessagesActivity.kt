@@ -3,8 +3,8 @@ package com.cs467.capstone
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
@@ -34,12 +34,16 @@ class LatestMessagesActivity : AppCompatActivity() {
 
     }
 
+
+
+
+    /*handle user select new message from menu event*/
     override fun onOptionsItemSelected(item: MenuItem?) : Boolean {
 
         when(item?.itemId) {
             R.id.menu_new_message -> {
 
-                val intent = Intent(this, NewMessageActivity::class.java)
+                val intent = Intent(this, NewMessageActivity::class.java)  //take user to new msg screen
                 startActivity(intent)
 
             }
@@ -48,6 +52,7 @@ class LatestMessagesActivity : AppCompatActivity() {
 
     }
 
+    /* display menu */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_messages, menu)
 

@@ -69,7 +69,7 @@
             android:layout_marginLeft="20dp"
             android:background="#e02c18"/>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view"
             android:layout_gravity="center"
@@ -120,6 +120,6 @@
 
         </TableLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
