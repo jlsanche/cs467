@@ -18,7 +18,9 @@
         android:orientation="vertical"
         android:shrinkColumns="0"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/toolbar">
+
 
     <TableRow
             android:layout_width="fill_parent"
