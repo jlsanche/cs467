@@ -10,6 +10,10 @@
             android:id="@+id/profile"
             android:title="Profile"
             app:showAsAction="never"></item>
+    <item
+            android:id="@+id/home"
+            android:title="Home"
+            app:showAsAction="never"></item>
 
     <item
             android:id="@+id/food"
@@ -21,9 +25,5 @@
             android:title="Chat Forum"
             app:showAsAction="never"></item>
 
-    <item
-            android:id="@+id/tips"
-            android:title="Resources"
-            app:showAsAction="never"></item>
 
 </menu>

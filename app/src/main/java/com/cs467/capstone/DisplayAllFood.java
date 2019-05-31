@@ -257,9 +257,9 @@ public class DisplayAllFood extends AppCompatActivity {
                 //startActivity(chat);
                 break;
             case R.id.tips:
-                Toast.makeText( getApplicationContext(),"tips", Toast.LENGTH_SHORT).show();
-                //Intent tips = new Intent(this, Profile.class);
-                //startActivity(tips);
+                Toast.makeText( getApplicationContext(),"resources", Toast.LENGTH_SHORT).show();
+                Intent tips = new Intent(this, Resources.class);
+                startActivity(tips);
                 break;
             default:
 

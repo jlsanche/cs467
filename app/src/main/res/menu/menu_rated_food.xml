@@ -23,7 +23,7 @@
 
     <item
             android:id="@+id/tips"
-            android:title="Tips"
+            android:title="Resources"
             app:showAsAction="never"></item>
 
 </menu>

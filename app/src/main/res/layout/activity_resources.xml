@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+<include
+        layout="@layout/activity_toolbar"
+        android:id="@+id/toolbar">
+</include>
+
+
+<TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/displayLinear"
+        android:orientation="vertical"
+        android:shrinkColumns="0"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="30dp">
+
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+    </TableRow>
+
+</TableLayout>
+
+</RelativeLayout>
