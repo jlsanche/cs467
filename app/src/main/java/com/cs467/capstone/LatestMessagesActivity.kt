@@ -3,10 +3,10 @@ package com.cs467.capstone
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_latest_messages.*
 
@@ -33,8 +33,6 @@ class LatestMessagesActivity : AppCompatActivity() {
         chatToolbar.setNavigationOnClickListener({ finish() })
 
     }
-
-
 
 
     /*handle user select new message from menu event*/
