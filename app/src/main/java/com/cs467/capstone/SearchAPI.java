@@ -44,57 +44,72 @@ public class SearchAPI extends AppCompatActivity {
                 String space = " ";
                 String newSpace = "%20";
 
-                RequestQueue myQueue = Volley.newRequestQueue(context);
-                String urlString = value.replaceAll(" ", "%20");
-                final String url = "https://api.edamam.com/api/food-database/parser?ingr=" + urlString + "&app_id=4915a2bc&app_key=edc6cb09de04b49c238560207f6883ef";
+                if(value.equals("")) {
+                    TableRow row = new TableRow(context);
+                    row.setLayoutParams(lp);
 
-                StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Gson g = new Gson();
-                        FoodObj j = g.fromJson(response, FoodObj.class);
+                    TextView textView0 = new TextView(context);
+                    textView0.setText("No result");
+                    textView0.setGravity(0);
+                    textView0.setPadding(60, 5, 20, 5);
+                    textView0.setTextColor(0xFF000000);
+                    row.addView(textView0, 0);
 
-                        for(int i = 0; i < j.hints.length; i++) {
-                            String name = (j.hints[i].food.label);
+                    table.addView(row);
+                }
+                else {
+                    RequestQueue myQueue = Volley.newRequestQueue(context);
+                    String urlString = value.replaceAll(" ", "%20");
+                    final String url = "https://api.edamam.com/api/food-database/parser?ingr=" + urlString + "&app_id=4915a2bc&app_key=edc6cb09de04b49c238560207f6883ef";
 
-                            TableRow row = new TableRow(context);
-                            row.setLayoutParams(lp);
+                    StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Gson g = new Gson();
+                            FoodObj j = g.fromJson(response, FoodObj.class);
 
-                            TextView textView0 = new TextView(context);
-                            textView0.setText(name);
-                            textView0.setGravity(0);
-                            textView0.setPadding(60, 5, 20, 5);
-                            textView0.setTextColor(0xFF000000);
-                            row.addView(textView0, 0);
+                            for (int i = 0; i < j.hints.length; i++) {
+                                String name = (j.hints[i].food.label);
 
-                            Button addButton = new Button(context);
-                            addButton.setText("add");
-                            addButton.setGravity(Gravity.CENTER);
-                            addButton.setTextColor(0xFF000000);
-                            row.addView(addButton, 1);
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
 
-                            table.addView(row);
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
 
-                            final int final_row = i;
+                                Button addButton = new Button(context);
+                                addButton.setText("add");
+                                addButton.setGravity(Gravity.CENTER);
+                                addButton.setTextColor(0xFF000000);
+                                row.addView(addButton, 1);
 
-                            addButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    TableRow row = (TableRow) table.getChildAt(final_row);
-                                    TextView button = (TextView) row.getChildAt(0);
-                                    String food_name = (String) button.getText();
-                                    buttonClicked(food_name);
-                                }
-                            });
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                addButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        TableRow row = (TableRow) table.getChildAt(final_row);
+                                        TextView button = (TextView) row.getChildAt(0);
+                                        String food_name = (String) button.getText();
+                                        buttonClicked(food_name);
+                                    }
+                                });
+                            }
                         }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        responseResult.setText(url);
-                    }
-                });
-                myQueue.add(MyStringRequest);
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            responseResult.setText(url);
+                        }
+                    });
+                    myQueue.add(MyStringRequest);
+                }
             }
         });
     }
@@ -103,7 +118,6 @@ public class SearchAPI extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_home, menu);
-        //return super.onCreateOptionsMenu(menu_home);
         return true;
     }
 
@@ -111,12 +125,10 @@ public class SearchAPI extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.settings:
-
                 Intent settings = new Intent(SearchAPI.this, SettingsActivity.class);
                 startActivity(settings);
                 break;
             case R.id.profile:
-
                 Intent profile = new Intent(SearchAPI.this, ProfileActivity.class);
                 startActivity(profile);
                 break;
@@ -138,13 +150,13 @@ public class SearchAPI extends AppCompatActivity {
 
         }
 
-        //return super.onOptionsItemSelected(item);
         return true;
     }
 
     public void buttonClicked(String food) {
        Intent intent = new Intent(this, AddFoodActivity.class);
-       intent.putExtra("value", food);
+       String foodLower = food.toLowerCase();
+       intent.putExtra("value", foodLower);
        startActivity(intent);
     }
 }
