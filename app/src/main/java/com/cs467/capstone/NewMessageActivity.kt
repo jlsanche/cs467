@@ -1,7 +1,12 @@
 package com.cs467.capstone
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
@@ -22,18 +27,43 @@ class NewMessageActivity : AppCompatActivity() {
         newMessagetoolbar.setNavigationOnClickListener({ finish() })
 
 
+        //create list view to hold users
         val adapter = GroupAdapter<ViewHolder>()
 
         adapter.add(UserItem())
         adapter.add(UserItem())
         adapter.add(UserItem())
 
-
-
         recyclerView.adapter = adapter
+
+        fetchUsers()
 
 
     }
+
+
+    private fun fetchUsers() {
+
+        val ref = FirebaseDatabase.getInstance().getReference("/Users")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                p0.children.forEach {
+                    Log.d("newMsg", it.toString())
+                }
+
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+
+            }
+        })
+    }
+
+
+
 }
 
 

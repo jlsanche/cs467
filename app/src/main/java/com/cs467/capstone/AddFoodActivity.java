@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.*;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class AddFoodActivity extends AppCompatActivity {
 
@@ -41,7 +42,11 @@ public class AddFoodActivity extends AppCompatActivity {
                 String rating = (String) radioButton.getText();
                 String value = addFood.getText().toString();
                 Food newFood = new Food(value, rating);
-                act.createAddNewFood(newFood);
+
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+
+                act.createAddNewFood(newFood, mAuth.getCurrentUser().getUid());
                 Toast toast = Toast.makeText( getApplicationContext(),"Food added!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
