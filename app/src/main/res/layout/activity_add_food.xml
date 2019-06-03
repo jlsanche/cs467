@@ -41,19 +41,19 @@
             android:id="@+id/radio"
             android:visibility="visible">
         <RadioButton
-            android:text="Good"
+            android:text="good"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/radio1"
             android:onClick="checkButton"/>
         <RadioButton
-                android:text="Okay"
+                android:text="fair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio2"
                 android:onClick="checkButton"/>
         <RadioButton
-                android:text="Bad"
+                android:text="bad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio3"
