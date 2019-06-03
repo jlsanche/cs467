@@ -11,10 +11,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
-
 
 public class DisplayAllFood extends AppCompatActivity {
 
@@ -26,6 +26,8 @@ public class DisplayAllFood extends AppCompatActivity {
 
     protected DatabaseReference db;
     Context context = null;
+
+    private final String childName = "UsersFood";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +51,17 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference();
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
+                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -78,7 +84,28 @@ public class DisplayAllFood extends AppCompatActivity {
                             textView1.setPadding(60, 5, 20, 5);
                             textView1.setTextColor(0xFF000000);
                             row.addView(textView1, 1);
+
+                            Button addButton = new Button(context);
+                            addButton.setText("delete");
+                            //addButton.setGravity(Gravity.CENTER);
+                            addButton.setTextColor(0xFF000000);
+                            row.addView(addButton, 2);
+
                             table.addView(row);
+
+                            final int final_row = i;
+
+                            addButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    TableRow row = (TableRow) table.getChildAt(final_row);
+                                    TextView button = (TextView) row.getChildAt(0);
+                                    String food_name = (String) button.getText();
+                                    buttonClicked(food_name, db);
+                                }
+                            });
+
+                            i++;
                         }
                     }
                     @Override
@@ -93,20 +120,24 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference();
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
+                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
                             String name = String.valueOf(dsp.child("name").getValue());
                             String rating = String.valueOf(dsp.child("rating").getValue());
 
-                            if(rating.equals("Good")) {
+                            if(rating.equals("good")) {
                                 TableRow row = new TableRow(context);
                                 row.setLayoutParams(lp);
 
@@ -123,7 +154,28 @@ public class DisplayAllFood extends AppCompatActivity {
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
+
+                                Button addButton = new Button(context);
+                                addButton.setText("delete");
+                                //addButton.setGravity(Gravity.CENTER);
+                                addButton.setTextColor(0xFF000000);
+                                row.addView(addButton, 2);
+
                                 table.addView(row);
+
+                                final int final_row = i;
+
+                                addButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        TableRow row = (TableRow) table.getChildAt(final_row);
+                                        TextView button = (TextView) row.getChildAt(0);
+                                        String food_name = (String) button.getText();
+                                        buttonClicked(food_name, db);
+                                    }
+                                });
+
+                                i++;
                             }
                         }
                     }
@@ -139,20 +191,24 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference();
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
+                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
                             String name = String.valueOf(dsp.child("name").getValue());
                             String rating = String.valueOf(dsp.child("rating").getValue());
 
-                            if(rating.equals("Okay")) {
+                            if(rating.equals("fair")) {
                                 TableRow row = new TableRow(context);
                                 row.setLayoutParams(lp);
 
@@ -169,7 +225,28 @@ public class DisplayAllFood extends AppCompatActivity {
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
+
+                                Button addButton = new Button(context);
+                                addButton.setText("delete");
+                                //addButton.setGravity(Gravity.CENTER);
+                                addButton.setTextColor(0xFF000000);
+                                row.addView(addButton, 2);
+
                                 table.addView(row);
+
+                                final int final_row = i;
+
+                                addButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        TableRow row = (TableRow) table.getChildAt(final_row);
+                                        TextView button = (TextView) row.getChildAt(0);
+                                        String food_name = (String) button.getText();
+                                        buttonClicked(food_name, db);
+                                    }
+                                });
+
+                                i++;
                             }
                         }
                     }
@@ -185,20 +262,24 @@ public class DisplayAllFood extends AppCompatActivity {
                 int tableCount = table.getChildCount();
                 table.removeViews(1, tableCount - 1);
 
-                db = FirebaseDatabase.getInstance().getReference();
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
 
                 db.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
+                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
                             String name = String.valueOf(dsp.child("name").getValue());
                             String rating = String.valueOf(dsp.child("rating").getValue());
 
-                            if(rating.equals("Bad")) {
+                            if(rating.equals("bad")) {
                                 TableRow row = new TableRow(context);
                                 row.setLayoutParams(lp);
 
@@ -215,7 +296,28 @@ public class DisplayAllFood extends AppCompatActivity {
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
+
+                                Button addButton = new Button(context);
+                                addButton.setText("delete");
+                                //addButton.setGravity(Gravity.CENTER);
+                                addButton.setTextColor(0xFF000000);
+                                row.addView(addButton, 2);
+
                                 table.addView(row);
+
+                                final int final_row = i;
+
+                                addButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        TableRow row = (TableRow) table.getChildAt(final_row);
+                                        TextView button = (TextView) row.getChildAt(0);
+                                        String food_name = (String) button.getText();
+                                        buttonClicked(food_name, db);
+                                    }
+                                });
+
+                                i++;
                             }
                         }
                     }
@@ -230,7 +332,6 @@ public class DisplayAllFood extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_rated_food, menu);
-        //return super.onCreateOptionsMenu(menu);
         return true;
     }
 
@@ -238,12 +339,10 @@ public class DisplayAllFood extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.settings:
-                //Toast.makeText( getApplicationContext(),"settings", Toast.LENGTH_SHORT).show();
                 Intent settings = new Intent(this, SettingsActivity.class);
                 startActivity(settings);
                 break;
             case R.id.profile:
-                //Toast.makeText( getApplicationContext(),"profile", Toast.LENGTH_SHORT).show();
                 Intent profile = new Intent(this, ProfileActivity.class);
                 startActivity(profile);
                 break;
@@ -262,10 +361,14 @@ public class DisplayAllFood extends AppCompatActivity {
                 startActivity(tips);
                 break;
             default:
-
         }
-
-        //return super.onOptionsItemSelected(item);
         return true;
+    }
+
+    public void buttonClicked(String food_name, DatabaseReference db) {
+        db.child(food_name).setValue(null);
+        Toast toast = Toast.makeText( getApplicationContext(),"Food deleted!", Toast.LENGTH_SHORT);
+        //toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 }
