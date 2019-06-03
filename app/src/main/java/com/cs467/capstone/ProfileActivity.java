@@ -47,7 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     private  DatabaseReference reference;
-    private FirebaseUser user;
+    private  FirebaseUser user;
     private  User myUser;
 
 
@@ -110,9 +110,6 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         }
     }
-
-
-
 
 
     @SuppressLint("SetTextI18n")
@@ -301,8 +298,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         return true;
     }
-
-
 
 
 
