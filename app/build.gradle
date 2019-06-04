@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -55,3 +57,7 @@ dependencies {
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
+androidExtensions {
+    experimental = true
+}

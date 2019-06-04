@@ -16,7 +16,6 @@
 		android:theme="?attr/actionBarTheme"
 		app:title="Settings"
 		app:titleMarginStart="@android:dimen/app_icon_size"
-
 		android:minHeight="?attr/actionBarSize" android:id="@+id/settings_toolbar"/>
 
 

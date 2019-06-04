@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_marginBottom="8dp">
+
+
+	<ImageView
+		android:layout_width="60dp"
+		android:layout_height="48dp"
+		tools:srcCompat="@tools:sample/avatars"
+		android:id="@+id/imageView2"
+
+		app:layout_constraintTop_toTopOf="parent"
+		android:layout_marginTop="42dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		android:layout_marginEnd="29dp"/>
+
+	<TextView
+
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+
+		android:id="@+id/textView2"
+		tools:text="this is my msgdekwjdlkqwj;fkler;qdked;elw;dewjdkqedckm
+					rekjfqker;jklfqjkrfrekfjekrljfklerf"
+		android:maxWidth="240dp"
+		android:padding="16dp"
+		android:background="@android:color/holo_green_dark"
+		android:textColor="@android:color/white"
+
+		app:layout_constraintEnd_toStartOf="@+id/imageView2"
+		android:layout_marginStart="24dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintHorizontal_bias="0.86"
+		android:layout_marginTop="40dp"
+		app:layout_constraintTop_toTopOf="parent"
+	/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
