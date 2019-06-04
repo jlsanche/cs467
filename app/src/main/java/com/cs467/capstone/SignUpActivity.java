@@ -86,6 +86,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                    User user = new User();
                    user.setEmail(email);
+                   user.setId(userid);
 
                     reference.setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

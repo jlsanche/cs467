@@ -5,13 +5,23 @@ import android.os.Parcelable;
 
 public class User implements Parcelable {
 
+    private String id;
     private String email;
     private String username;
     private String profileImageUrl;
 
     User() {}
 
-    public User(String email, String username, String profileImageUrl) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public User(String id, String email, String username, String profileImageUrl) {
+        this.id = id;
         this.email = email;
         this.username = username;
         this.profileImageUrl = profileImageUrl;
@@ -30,8 +40,8 @@ public class User implements Parcelable {
         return username;
     }
 
-    public void setUsername(String useername) {
-        this.username = useername;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getProfileImageUrl() {
@@ -43,13 +53,14 @@ public class User implements Parcelable {
     }
 
     public User(Parcel in) {
-        String[] data = new String[3];
+        String[] data = new String[4];
 
         in.readStringArray(data);
 
         this.email = data[0];
         this.username = data[1];
         this.profileImageUrl = data[2];
+        this.id = data[3];
 
 
     }
@@ -63,13 +74,14 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[] {
+                this.id,
                 this.email,
                 this.username,
                 this.profileImageUrl
         });
     }
 
-     public static final Parcelable.Creator Creator = new Parcelable.Creator() {
+     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
 
          @Override
          public Object createFromParcel(Parcel in) {

@@ -23,7 +23,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 
-		android:id="@+id/textView2"
+		android:id="@+id/text_to_View"
 		tools:text="this is my msgdekwjdlkqwj;fkler;qdked;elw;dewjdkqedckm
 					rekjfqker;jklfqjkrfrekfjekrljfklerf"
 		android:maxWidth="240dp"
