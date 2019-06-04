@@ -1,5 +1,6 @@
 package com.cs467.capstone
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -26,18 +27,14 @@ class NewMessageActivity : AppCompatActivity() {
         /*display back arrow on top left */
         newMessagetoolbar.setNavigationIcon(R.drawable.ic_arrow_back_white)
 
-
         /* go back to previous activity */
         newMessagetoolbar.setNavigationOnClickListener({ finish() })
 
         supportActionBar?.title = "Select User"
 
-
         fetchUsers()
 
-
     }
-
 
     private fun fetchUsers() {
 
@@ -54,6 +51,13 @@ class NewMessageActivity : AppCompatActivity() {
                         adapter.add(UserItem(user))
                     }
 
+                }
+
+                adapter.setOnItemClickListener { item, view ->
+                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    startActivity(intent)
+
+                    finish()
                 }
 
                 recyclerView.adapter = adapter

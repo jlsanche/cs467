@@ -48,7 +48,6 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
 
-
         /* go back to previous activity */
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +58,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     /**
      * Email client intent to send support mail

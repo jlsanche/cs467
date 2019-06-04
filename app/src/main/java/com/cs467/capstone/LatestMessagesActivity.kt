@@ -58,5 +58,4 @@ class LatestMessagesActivity : AppCompatActivity() {
 
     }
 
-
 }
