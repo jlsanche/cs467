@@ -46,6 +46,9 @@
 		<activity android:name=".DisplayAllFood">
 		</activity>
 
+		<activity android:name=".Resources">
+		</activity>
+
 
 		<activity android:name=".NewMessageActivity">
 
