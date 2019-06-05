@@ -3,18 +3,30 @@ package com.cs467.capstone
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_latest_messages.*
 
 class LatestMessagesActivity : AppCompatActivity() {
 
+    companion object {
+
+        var currentUser: User? = null
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_latest_messages)
+
+        fetchCurrentUser()
 
         val toolbar = findViewById<Toolbar>(R.id.chatToolbar)
         setSupportActionBar(toolbar)
@@ -32,6 +44,26 @@ class LatestMessagesActivity : AppCompatActivity() {
         /* go back to previous activity */
         chatToolbar.setNavigationOnClickListener({ finish() })
 
+    }
+
+    private fun fetchCurrentUser() {
+        val id = FirebaseAuth.getInstance().uid
+
+        val ref = FirebaseDatabase.getInstance().getReference("/Users/$id")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                currentUser = p0.getValue(User::class.java)
+                Log.d("latest Messages", "current user ${currentUser?.profileImageUrl}")
+
+
+            }
+
+        })
     }
 
 

@@ -57,10 +57,10 @@ public class User implements Parcelable {
 
         in.readStringArray(data);
 
-        this.email = data[0];
-        this.username = data[1];
-        this.profileImageUrl = data[2];
-        this.id = data[3];
+        this.id = data[0];
+        this.email = data[1];
+        this.username = data[2];
+        this.profileImageUrl = data[3];
 
 
     }

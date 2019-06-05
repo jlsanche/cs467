@@ -13,9 +13,12 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		app:title="Select User"
-		android:background="@color/colorPrimary" app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
-		app:layout_constraintBottom_toTopOf="@+id/recyclerView" app:layout_constraintEnd_toEndOf="parent"/>
+		android:background="@color/colorPrimary"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		android:layout_marginBottom="8dp"
+		app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+		app:layout_constraintEnd_toEndOf="parent"/>
 
 
 	<androidx.recyclerview.widget.RecyclerView
