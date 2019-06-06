@@ -1,8 +1,10 @@
 package com.cs467.capstone
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -31,11 +33,17 @@ class ChatLogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_log)
 
+        val toolbar = findViewById<Toolbar>(R.id.chat_log_toolbar)
+        setSupportActionBar(toolbar)
+        toolbar.setTitleTextColor(Color.WHITE)
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white)
+
+
         recyclerview_chat_log.adapter = adapter
 
         toUser = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
 
-         supportActionBar?.title = toUser?.username
+        supportActionBar?.title = toUser?.username
 
         listenForMessages()
 
@@ -58,7 +66,7 @@ class ChatLogActivity : AppCompatActivity() {
 
         val ref = FirebaseDatabase.getInstance().getReference("/User-Messages/$fromId/$toId")
 
-        ref.addChildEventListener(object: ChildEventListener {
+        ref.addChildEventListener(object : ChildEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -74,14 +82,14 @@ class ChatLogActivity : AppCompatActivity() {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 val chatMessage = p0.getValue(ChatMessage::class.java)
 
-                if(chatMessage != null) {
+                if (chatMessage != null) {
 
                     Log.d(TAG, chatMessage.text)
 
 
-                    if(chatMessage.fromId == FirebaseAuth.getInstance().uid) {
+                    if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
 
-                        val currentUser = LatestMessagesActivity.currentUser ?:return
+                        val currentUser = LatestMessagesActivity.currentUser ?: return
                         adapter.add(ChatFromItem(chatMessage.text, currentUser))
 
                     } else {
@@ -92,7 +100,7 @@ class ChatLogActivity : AppCompatActivity() {
 
                 }
 
-                recyclerview_chat_log.scrollToPosition(adapter.itemCount-1)
+                recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
             }
 
             override fun onChildRemoved(p0: DataSnapshot) {
@@ -106,7 +114,7 @@ class ChatLogActivity : AppCompatActivity() {
 
     class ChatMessage(val id: String, val text: String, val fromId: String, val toId: String, val timestamp: Long) {
 
-        constructor(): this("", "", "","", -1)
+        constructor() : this("", "", "", "", -1)
     }
 
 
@@ -118,18 +126,18 @@ class ChatLogActivity : AppCompatActivity() {
         val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
         val toId = user.id
 
-        if(fromId == null) return
+        if (fromId == null) return
 
         val reference = FirebaseDatabase.getInstance().getReference("/User-Messages/$fromId/$toId").push()
 
         val toReference = FirebaseDatabase.getInstance().getReference("/User-Messages/$toId/$fromId").push()
 
-        val chatMassage = ChatMessage(reference.key!!,text,fromId, toId, System.currentTimeMillis() /1000 )
+        val chatMassage = ChatMessage(reference.key!!, text, fromId, toId, System.currentTimeMillis() / 1000)
         reference.setValue(chatMassage).addOnSuccessListener {
 
             Log.d(TAG, "saved chat msg: ${reference.key}")
             chat_log_edittext.text.clear()
-            recyclerview_chat_log.scrollToPosition(adapter.itemCount -1)
+            recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
 
         }
 
@@ -143,13 +151,12 @@ class ChatLogActivity : AppCompatActivity() {
         latestMessageToRef.setValue(chatMassage)
 
 
-
     }
 
 }
 
 
-class ChatFromItem(val text:String, val user: User): Item<ViewHolder>() {
+class ChatFromItem(val text: String, val user: User) : Item<ViewHolder>() {
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
@@ -171,11 +178,13 @@ class ChatFromItem(val text:String, val user: User): Item<ViewHolder>() {
 
 }
 
-class ChatToItem (val text:String, val user: User): Item<ViewHolder>() {
+class ChatToItem(val text: String, val user: User) : Item<ViewHolder>() {
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
-        viewHolder.itemView.text_to_View.text = text
+        viewHolder.itemView.text_to_view.text = text
+
+
         val targetImageView = viewHolder.itemView.imageView_to
 
         //load user image to msg thread
