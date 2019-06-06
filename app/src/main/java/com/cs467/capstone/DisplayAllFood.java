@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
-
 import java.util.ArrayList;
 
 public class DisplayAllFood extends AppCompatActivity {
@@ -22,9 +21,11 @@ public class DisplayAllFood extends AppCompatActivity {
     Button seeGood;
     Button seeOK;
     Button seeBad;
+    Button edit;
     Toolbar toolbar;
 
     protected DatabaseReference db;
+    protected DatabaseReference dbAll;
     Context context = null;
 
     private final String childName = "UsersFood";
@@ -38,6 +39,7 @@ public class DisplayAllFood extends AppCompatActivity {
         seeGood = (Button) findViewById(R.id.buttonGood);
         seeOK = (Button) findViewById(R.id.buttonOK);
         seeBad = (Button) findViewById(R.id.buttonBad);
+        edit = (Button) findViewById(R.id.edit);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -46,6 +48,394 @@ public class DisplayAllFood extends AppCompatActivity {
         final TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
 
         seeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tableCount = table.getChildCount();
+                table.removeViews(1, tableCount - 1);
+
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
+                dbAll = FirebaseDatabase.getInstance().getReference().child(childName).child("ic food");
+
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            TableRow row = new TableRow(context);
+                            row.setLayoutParams(lp);
+
+                            TextView textView0 = new TextView(context);
+                            textView0.setText(name);
+                            textView0.setGravity(0);
+                            textView0.setPadding(60, 5, 20, 5);
+                            textView0.setTextColor(0xFF000000);
+                            row.addView(textView0, 0);
+
+                            TextView textView1 = new TextView(context);
+                            textView1.setText(rating);
+                            textView1.setGravity(0);
+                            textView1.setPadding(60, 5, 20, 5);
+                            textView1.setTextColor(0xFF000000);
+                            row.addView(textView1, 1);
+
+                            table.addView(row);
+
+                            final int final_row = i;
+
+                            i++;
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+
+                dbAll.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            TableRow row = new TableRow(context);
+                            row.setLayoutParams(lp);
+
+                            TextView textView0 = new TextView(context);
+                            textView0.setText(name);
+                            textView0.setGravity(0);
+                            textView0.setPadding(60, 5, 20, 5);
+                            textView0.setTextColor(0xFF000000);
+                            row.addView(textView0, 0);
+
+                            TextView textView1 = new TextView(context);
+                            textView1.setText(rating);
+                            textView1.setGravity(0);
+                            textView1.setPadding(60, 5, 20, 5);
+                            textView1.setTextColor(0xFF000000);
+                            row.addView(textView1, 1);
+
+                            table.addView(row);
+
+                            final int final_row = i;
+
+                            i++;
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+            }
+        });
+
+        seeGood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tableCount = table.getChildCount();
+                table.removeViews(1, tableCount - 1);
+
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
+                dbAll = FirebaseDatabase.getInstance().getReference().child(childName).child("ic food");
+
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            if(rating.equals("good")) {
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
+
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
+
+                                TextView textView1 = new TextView(context);
+                                textView1.setText(rating);
+                                textView1.setGravity(0);
+                                textView1.setPadding(60, 5, 20, 5);
+                                textView1.setTextColor(0xFF000000);
+                                row.addView(textView1, 1);
+
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                i++;
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+
+                dbAll.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            if(rating.equals("good")) {
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
+
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
+
+                                TextView textView1 = new TextView(context);
+                                textView1.setText(rating);
+                                textView1.setGravity(0);
+                                textView1.setPadding(60, 5, 20, 5);
+                                textView1.setTextColor(0xFF000000);
+                                row.addView(textView1, 1);
+
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                i++;
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+            }
+        });
+
+        seeOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tableCount = table.getChildCount();
+                table.removeViews(1, tableCount - 1);
+
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
+                dbAll = FirebaseDatabase.getInstance().getReference().child(childName).child("ic food");
+
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            if(rating.equals("fair")) {
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
+
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
+
+                                TextView textView1 = new TextView(context);
+                                textView1.setText(rating);
+                                textView1.setGravity(0);
+                                textView1.setPadding(60, 5, 20, 5);
+                                textView1.setTextColor(0xFF000000);
+                                row.addView(textView1, 1);
+
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                i++;
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+
+                dbAll.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            if(rating.equals("fair")) {
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
+
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
+
+                                TextView textView1 = new TextView(context);
+                                textView1.setText(rating);
+                                textView1.setGravity(0);
+                                textView1.setPadding(60, 5, 20, 5);
+                                textView1.setTextColor(0xFF000000);
+                                row.addView(textView1, 1);
+
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                i++;
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+            }
+        });
+
+        seeBad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tableCount = table.getChildCount();
+                table.removeViews(1, tableCount - 1);
+
+                FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
+                dbAll = FirebaseDatabase.getInstance().getReference().child(childName).child("ic food");
+
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            if(rating.equals("bad")) {
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
+
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
+
+                                TextView textView1 = new TextView(context);
+                                textView1.setText(rating);
+                                textView1.setGravity(0);
+                                textView1.setPadding(60, 5, 20, 5);
+                                textView1.setTextColor(0xFF000000);
+                                row.addView(textView1, 1);
+
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                i++;
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+
+                dbAll.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> items = new ArrayList<>();
+
+                        int i = 1;
+                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            items.add(String.valueOf(dsp.getValue()));
+
+                            String name = String.valueOf(dsp.child("name").getValue());
+                            String rating = String.valueOf(dsp.child("rating").getValue());
+
+                            if(rating.equals("bad")) {
+                                TableRow row = new TableRow(context);
+                                row.setLayoutParams(lp);
+
+                                TextView textView0 = new TextView(context);
+                                textView0.setText(name);
+                                textView0.setGravity(0);
+                                textView0.setPadding(60, 5, 20, 5);
+                                textView0.setTextColor(0xFF000000);
+                                row.addView(textView0, 0);
+
+                                TextView textView1 = new TextView(context);
+                                textView1.setText(rating);
+                                textView1.setGravity(0);
+                                textView1.setPadding(60, 5, 20, 5);
+                                textView1.setTextColor(0xFF000000);
+                                row.addView(textView1, 1);
+
+                                table.addView(row);
+
+                                final int final_row = i;
+
+                                i++;
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+            }
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int tableCount = table.getChildCount();
@@ -87,7 +477,6 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             Button addButton = new Button(context);
                             addButton.setText("delete");
-                            //addButton.setGravity(Gravity.CENTER);
                             addButton.setTextColor(0xFF000000);
                             row.addView(addButton, 2);
 
@@ -106,219 +495,6 @@ public class DisplayAllFood extends AppCompatActivity {
                             });
 
                             i++;
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {}
-                });
-            }
-        });
-
-        seeGood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int tableCount = table.getChildCount();
-                table.removeViews(1, tableCount - 1);
-
-                FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
-                String userId = mAuth.getCurrentUser().getUid();
-                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
-
-                db.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        ArrayList<String> items = new ArrayList<>();
-
-                        int i = 1;
-                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
-                            items.add(String.valueOf(dsp.getValue()));
-
-                            String name = String.valueOf(dsp.child("name").getValue());
-                            String rating = String.valueOf(dsp.child("rating").getValue());
-
-                            if(rating.equals("good")) {
-                                TableRow row = new TableRow(context);
-                                row.setLayoutParams(lp);
-
-                                TextView textView0 = new TextView(context);
-                                textView0.setText(name);
-                                textView0.setGravity(0);
-                                textView0.setPadding(60, 5, 20, 5);
-                                textView0.setTextColor(0xFF000000);
-                                row.addView(textView0, 0);
-
-                                TextView textView1 = new TextView(context);
-                                textView1.setText(rating);
-                                textView1.setGravity(0);
-                                textView1.setPadding(60, 5, 20, 5);
-                                textView1.setTextColor(0xFF000000);
-                                row.addView(textView1, 1);
-
-                                Button addButton = new Button(context);
-                                addButton.setText("delete");
-                                //addButton.setGravity(Gravity.CENTER);
-                                addButton.setTextColor(0xFF000000);
-                                row.addView(addButton, 2);
-
-                                table.addView(row);
-
-                                final int final_row = i;
-
-                                addButton.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        TableRow row = (TableRow) table.getChildAt(final_row);
-                                        TextView button = (TextView) row.getChildAt(0);
-                                        String food_name = (String) button.getText();
-                                        buttonClicked(food_name, db);
-                                    }
-                                });
-
-                                i++;
-                            }
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {}
-                });
-            }
-        });
-
-        seeOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int tableCount = table.getChildCount();
-                table.removeViews(1, tableCount - 1);
-
-                FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
-                String userId = mAuth.getCurrentUser().getUid();
-                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
-
-                db.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        ArrayList<String> items = new ArrayList<>();
-
-                        int i = 1;
-                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
-                            items.add(String.valueOf(dsp.getValue()));
-
-                            String name = String.valueOf(dsp.child("name").getValue());
-                            String rating = String.valueOf(dsp.child("rating").getValue());
-
-                            if(rating.equals("fair")) {
-                                TableRow row = new TableRow(context);
-                                row.setLayoutParams(lp);
-
-                                TextView textView0 = new TextView(context);
-                                textView0.setText(name);
-                                textView0.setGravity(0);
-                                textView0.setPadding(60, 5, 20, 5);
-                                textView0.setTextColor(0xFF000000);
-                                row.addView(textView0, 0);
-
-                                TextView textView1 = new TextView(context);
-                                textView1.setText(rating);
-                                textView1.setGravity(0);
-                                textView1.setPadding(60, 5, 20, 5);
-                                textView1.setTextColor(0xFF000000);
-                                row.addView(textView1, 1);
-
-                                Button addButton = new Button(context);
-                                addButton.setText("delete");
-                                //addButton.setGravity(Gravity.CENTER);
-                                addButton.setTextColor(0xFF000000);
-                                row.addView(addButton, 2);
-
-                                table.addView(row);
-
-                                final int final_row = i;
-
-                                addButton.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        TableRow row = (TableRow) table.getChildAt(final_row);
-                                        TextView button = (TextView) row.getChildAt(0);
-                                        String food_name = (String) button.getText();
-                                        buttonClicked(food_name, db);
-                                    }
-                                });
-
-                                i++;
-                            }
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {}
-                });
-            }
-        });
-
-        seeBad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int tableCount = table.getChildCount();
-                table.removeViews(1, tableCount - 1);
-
-                FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
-                String userId = mAuth.getCurrentUser().getUid();
-                db = FirebaseDatabase.getInstance().getReference().child(childName).child(userId);
-
-                db.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        ArrayList<String> items = new ArrayList<>();
-
-                        int i = 1;
-                        for(DataSnapshot dsp : dataSnapshot.getChildren()) {
-                            items.add(String.valueOf(dsp.getValue()));
-
-                            String name = String.valueOf(dsp.child("name").getValue());
-                            String rating = String.valueOf(dsp.child("rating").getValue());
-
-                            if(rating.equals("bad")) {
-                                TableRow row = new TableRow(context);
-                                row.setLayoutParams(lp);
-
-                                TextView textView0 = new TextView(context);
-                                textView0.setText(name);
-                                textView0.setGravity(0);
-                                textView0.setPadding(60, 5, 20, 5);
-                                textView0.setTextColor(0xFF000000);
-                                row.addView(textView0, 0);
-
-                                TextView textView1 = new TextView(context);
-                                textView1.setText(rating);
-                                textView1.setGravity(0);
-                                textView1.setPadding(60, 5, 20, 5);
-                                textView1.setTextColor(0xFF000000);
-                                row.addView(textView1, 1);
-
-                                Button addButton = new Button(context);
-                                addButton.setText("delete");
-                                //addButton.setGravity(Gravity.CENTER);
-                                addButton.setTextColor(0xFF000000);
-                                row.addView(addButton, 2);
-
-                                table.addView(row);
-
-                                final int final_row = i;
-
-                                addButton.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        TableRow row = (TableRow) table.getChildAt(final_row);
-                                        TextView button = (TextView) row.getChildAt(0);
-                                        String food_name = (String) button.getText();
-                                        buttonClicked(food_name, db);
-                                    }
-                                });
-
-                                i++;
-                            }
                         }
                     }
                     @Override
