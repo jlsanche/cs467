@@ -170,7 +170,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void saveUserInformation() {
 
-
         String displayName = editText.getText().toString();
 
         if (displayName.isEmpty()) {
@@ -178,7 +177,6 @@ public class ProfileActivity extends AppCompatActivity {
             editText.requestFocus();
             return;
         }
-
 
 
         myUser.setUsername(displayName);
