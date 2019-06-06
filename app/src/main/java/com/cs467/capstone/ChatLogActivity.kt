@@ -83,20 +83,21 @@ class ChatLogActivity : AppCompatActivity() {
 
                         val currentUser = LatestMessagesActivity.currentUser ?:return
                         adapter.add(ChatFromItem(chatMessage.text, currentUser))
-                    } else {
 
+                    } else {
 
                         adapter.add(ChatToItem(chatMessage.text, toUser!!))
 
                     }
 
                 }
+
+                recyclerview_chat_log.scrollToPosition(adapter.itemCount-1)
             }
 
             override fun onChildRemoved(p0: DataSnapshot) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
-
 
         })
 
@@ -126,7 +127,7 @@ class ChatLogActivity : AppCompatActivity() {
         val chatMassage = ChatMessage(reference.key!!,text,fromId, toId, System.currentTimeMillis() /1000 )
         reference.setValue(chatMassage).addOnSuccessListener {
 
-            Log.d(TAG, "saved our chat msg: ${reference.key}")
+            Log.d(TAG, "saved chat msg: ${reference.key}")
             chat_log_edittext.text.clear()
             recyclerview_chat_log.scrollToPosition(adapter.itemCount -1)
 
@@ -134,9 +135,16 @@ class ChatLogActivity : AppCompatActivity() {
 
         toReference.setValue(chatMassage)
 
+        val latestMessageRef = FirebaseDatabase.getInstance().getReference("/Latest-Messages/$fromId/$toId")
+        latestMessageRef.setValue(chatMassage)
+
+        val latestMessageToRef = FirebaseDatabase.getInstance().getReference("/Latest-Messages/$toId/$fromId")
+
+        latestMessageToRef.setValue(chatMassage)
+
+
 
     }
-
 
 }
 
@@ -162,7 +170,6 @@ class ChatFromItem(val text:String, val user: User): Item<ViewHolder>() {
     }
 
 }
-
 
 class ChatToItem (val text:String, val user: User): Item<ViewHolder>() {
 
