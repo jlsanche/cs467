@@ -64,8 +64,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        if (password.length() < 10) {
-            editTextPassword.setError("Minimum password length is 10");
+        if (password.length() < 8) {
+            editTextPassword.setError("Minimum password length is eight");
             editTextPassword.requestFocus();
             return;
         }
@@ -84,27 +84,24 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
 
-
                    User user = new User();
                    user.setEmail(email);
+                   user.setId(userid);
 
                     reference.setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
 
-
                                 startActivity(new Intent(SignUpActivity.this, ProfileActivity.class));
                                 finish();
                             }
-
 
                         }
                     });
                 } else {
 
                     Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
-
 
                 }
             }

@@ -60,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarP);
         setSupportActionBar(toolbar);
 
+
         editText =  findViewById(R.id.editTextDisplayName);
         imageView = findViewById(R.id.imageView);
         progressBar =  findViewById(R.id.progressbar);
@@ -127,6 +128,7 @@ public class ProfileActivity extends AppCompatActivity {
                             Glide.with(ProfileActivity.this)
                                     .load(myUser.getProfileImageUrl())
                                     .into(imageView);
+
                         }
 
                         if (myUser.getUsername() != null) {
@@ -144,26 +146,26 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-            if (user.isEmailVerified()) {
-                textView.setText("Email Verified");
+        if (user.isEmailVerified()) {
+            textView.setText("Email Verified");
 
 
-            } else {
-                textView.setText("Verify Email");
-                textView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(ProfileActivity.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "User profile updated.");
-                            }
-                        });
-                    }
-                });
-            }
+        } else {
+            textView.setText("Verify Email");
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(ProfileActivity.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "User profile updated.");
+                        }
+                    });
+                }
+            });
         }
+    }
 
 
     private void saveUserInformation() {
@@ -191,6 +193,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                     Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "User profile updated.");
+
                 }
 
 
@@ -209,6 +212,7 @@ public class ProfileActivity extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uriProfileImage);
                 imageView.setImageBitmap(bitmap);
+
 
                 uploadImageToFirebaseStorage();
 
@@ -261,12 +265,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -290,8 +288,8 @@ public class ProfileActivity extends AppCompatActivity {
 
             case R.id.menuSettings:
 
-              finish();
-              startActivity(new Intent(ProfileActivity.this, SettingsActivity.class));
+                finish();
+                startActivity(new Intent(ProfileActivity.this, SettingsActivity.class));
 
 
         }

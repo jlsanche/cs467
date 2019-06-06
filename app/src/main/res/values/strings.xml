@@ -1,6 +1,10 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">The IC App</string>
 
+=======
+	<string name="app_name">Capstone</string>
+>>>>>>> jls/feature-chat
 
 
 	<!-- Strings related to login -->
@@ -26,9 +30,9 @@
 
 	<!-- Strings related to login -->
 
-    <string name="choose_email_client">Choose email client</string>
-    <string name="key_send_feedback">key_send_feedback</string>
-    <string name="key_messages">key_messages</string>
+	<string name="choose_email_client">Choose email client</string>
+	<string name="key_send_feedback">key_send_feedback</string>
+	<string name="key_messages">key_messages</string>
 
 
 </resources>

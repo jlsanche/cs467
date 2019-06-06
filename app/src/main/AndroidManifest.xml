@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.cs467.capstone">
-
 	<!-- To auto-complete the email text field in the login form with the user's emails -->
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -15,9 +13,14 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
-
 		tools:ignore="GoogleAppIndexingWarning">
+		<activity android:name=".ChatLogActivity">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".LatestMessagesActivity"/>
 
+
+		</activity>
 		<activity android:name=".MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
@@ -25,9 +28,6 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-
-
-
 		<activity android:name=".LatestMessagesActivity">
 		</activity>
 		<activity android:name=".SettingsActivity">
@@ -40,23 +40,23 @@
 		</activity>
 		<activity android:name=".SearchAPI">
 		</activity>
-
 		<activity android:name=".AddFoodActivity">
 		</activity>
 		<activity android:name=".DisplayAllFood">
 		</activity>
+<<<<<<< HEAD
 
 		<activity android:name=".Resources">
 		</activity>
 
 
+=======
+>>>>>>> jls/feature-chat
 		<activity android:name=".NewMessageActivity">
-
-			<meta-data android:name="android.support.PARENT_ACTIVITY"
-			           android:value=".LatestMessagesActivity"/>
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".LatestMessagesActivity"/>
 		</activity>
 	</application>
-
-
 
 </manifest>
