@@ -42,6 +42,7 @@ class LatestMessagesActivity : AppCompatActivity() {
         toolbar.setTitleTextColor(Color.WHITE)
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white)
 
+        //on clicking latest chat send user to that chat thread
         adapter.setOnItemClickListener { item, view ->
             Log.d(TAG, "123")
 
@@ -70,7 +71,7 @@ class LatestMessagesActivity : AppCompatActivity() {
     }
 
 
-
+    //populate latest message threads
     class LatestMessageRow(val chatMessage: ChatLogActivity.ChatMessage): Item<ViewHolder>() {
 
         var chatPartnerUSer: User? = null

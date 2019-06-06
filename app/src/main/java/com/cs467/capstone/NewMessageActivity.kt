@@ -1,6 +1,7 @@
 package com.cs467.capstone
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class NewMessageActivity : AppCompatActivity() {
         newMessagetoolbar.setNavigationOnClickListener({ finish() })
 
         supportActionBar?.title = "Select User"
+        newMessagetoolbar.setTitleTextColor(Color.WHITE)
 
         fetchUsers()
 

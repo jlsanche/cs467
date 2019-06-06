@@ -60,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarP);
         setSupportActionBar(toolbar);
 
+
         editText =  findViewById(R.id.editTextDisplayName);
         imageView = findViewById(R.id.imageView);
         progressBar =  findViewById(R.id.progressbar);
@@ -127,6 +128,7 @@ public class ProfileActivity extends AppCompatActivity {
                             Glide.with(ProfileActivity.this)
                                     .load(myUser.getProfileImageUrl())
                                     .into(imageView);
+
                         }
 
                         if (myUser.getUsername() != null) {
@@ -210,6 +212,7 @@ public class ProfileActivity extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uriProfileImage);
                 imageView.setImageBitmap(bitmap);
+
 
                 uploadImageToFirebaseStorage();
 
