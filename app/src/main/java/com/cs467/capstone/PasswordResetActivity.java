@@ -48,24 +48,35 @@ public class PasswordResetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                mAuth.sendPasswordResetEmail(userEmail.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        progressBar.setVisibility(View.GONE);
-                        if(task.isSuccessful()) {
-                            Log.d(TAG, "Email sent");
 
-                            Toast.makeText(PasswordResetActivity.this, "Check your email for password reset instructions", Toast.LENGTH_SHORT).show();
-                        } else {
+                try {
+                    mAuth.sendPasswordResetEmail(userEmail.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if (task.isSuccessful()) {
+                                        Log.d(TAG, "Email sent");
 
-                            Toast.makeText(PasswordResetActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(PasswordResetActivity.this, "Check your email for password reset instructions", Toast.LENGTH_SHORT).show();
+                                    } else {
+
+                                        Toast.makeText(PasswordResetActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
 
 
-                        }
+                                    }
 
-                    }
-                });
+                                }
+                            });
+
+                }catch (Exception e) {
+
+                    Toast.makeText(PasswordResetActivity.this,"Please enter an email", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+
+
+
+                }
             }
         });
 
