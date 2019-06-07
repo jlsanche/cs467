@@ -25,5 +25,7 @@
             android:id="@+id/tips"
             android:title="Resources"
             app:showAsAction="never"></item>
-
+    <item
+            android:id="@+id/menuLogout"
+            android:title="Logout"/>
 </menu>

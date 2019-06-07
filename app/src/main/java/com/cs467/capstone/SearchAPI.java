@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 
 
@@ -149,6 +150,11 @@ public class SearchAPI extends AppCompatActivity {
                 Toast.makeText( getApplicationContext(),"resources", Toast.LENGTH_SHORT).show();
                 Intent tips = new Intent(this, Resources.class);
                 startActivity(tips);
+                break;
+            case R.id.menuLogout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             default:
 
