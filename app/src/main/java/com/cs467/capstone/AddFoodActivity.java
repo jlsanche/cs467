@@ -39,33 +39,41 @@ public class AddFoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int radioId = radio.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
-                String rating = (String) radioButton.getText();
-                String value = addFood.getText().toString();
-                Food newFood = new Food(value, rating);
 
-                FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
+                if(radioButton == null) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please choose a rating", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                }
+                else {
+                    String rating = (String) radioButton.getText();
+                    String value = addFood.getText().toString();
+                    Food newFood = new Food(value, rating);
 
-                act.createAddNewFood(newFood, mAuth.getCurrentUser().getUid());
-                Toast toast = Toast.makeText( getApplicationContext(),"Food added!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                    FirebaseAuth mAuth;
+                    mAuth = FirebaseAuth.getInstance();
 
-                Button returnButton = new Button(getApplicationContext());
-                returnButton.setText("Return home");
-                returnButton.setGravity(Gravity.CENTER);
-                returnButton.setTextColor(0xFF000000);
-                lp.addRule(RelativeLayout.BELOW, submit.getId());
-                lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
-                layout.addView(returnButton, lp);
+                    act.createAddNewFood(newFood, mAuth.getCurrentUser().getUid());
+                    //Toast toast = Toast.makeText(getApplicationContext(), "Food added!", Toast.LENGTH_SHORT);
+                    //toast.setGravity(Gravity.CENTER, 0, 0);
+                    //toast.show();
 
-                returnButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), SearchAPI.class);
-                        startActivity(intent);
-                    }
-                });
+                    //Button returnButton = new Button(getApplicationContext());
+                    //returnButton.setText("Return home");
+                    //returnButton.setGravity(Gravity.CENTER);
+                    //returnButton.setTextColor(0xFF000000);
+                    //lp.addRule(RelativeLayout.BELOW, submit.getId());
+                    //lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    //layout.addView(returnButton, lp);
+
+                    //returnButton.setOnClickListener(new View.OnClickListener() {
+                        //@Override
+                        //public void onClick(View v) {
+                            Intent intent = new Intent(getApplicationContext(), SearchAPI.class);
+                            startActivity(intent);
+                        //}
+                    //});
+                }
             }
         });
     }
