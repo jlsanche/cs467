@@ -63,7 +63,7 @@ public class DisplayAllFood extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
-                        
+
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 

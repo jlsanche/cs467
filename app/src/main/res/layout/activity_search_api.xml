@@ -26,16 +26,20 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="200dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:backgroundTint="#7b828c"
             android:hint="Search"/>
 
     <Button
             android:id="@+id/btnSearch"
             android:textSize="12dp"
             android:layout_width="70dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_marginTop="200dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="310dp"
+            android:layout_marginLeft="308dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#ffffff"
             android:text="Search"/>
 
     <androidx.cardview.widget.CardView
