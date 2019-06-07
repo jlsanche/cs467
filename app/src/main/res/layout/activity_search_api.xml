@@ -48,7 +48,7 @@
             android:layout_marginBottom="25dp"
             card_view:cardCornerRadius="10dp"
             android:layout_below="@+id/btnSearch"
-            card_view:cardBackgroundColor="#dee5ef"
+            card_view:cardBackgroundColor="@color/colorAccent"
             android:layout_marginTop="7dp">
 
         <ScrollView

@@ -34,13 +34,13 @@
             android:layout_below="@+id/buttonAll"
             android:layout_marginLeft="150dp"
             android:layout_marginBottom="10dp"
-            android:background="#c1c1c1"
+            android:background="@color/colorPrimary"
             android:textColor="#000000"/>
 
     <Button
             android:text="All"
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:id="@+id/buttonAll"
             android:layout_below="@+id/title"
             android:layout_marginLeft="50dp"
@@ -51,7 +51,7 @@
     <Button
             android:text="Good"
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:id="@+id/buttonGood"
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/buttonAll"
@@ -62,7 +62,7 @@
     <Button
             android:text="Fair"
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:id="@+id/buttonOK"
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/buttonGood"
@@ -73,7 +73,7 @@
     <Button
             android:text="Bad"
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:id="@+id/buttonBad"
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/buttonOK"
@@ -90,7 +90,7 @@
             android:layout_marginBottom="25dp"
             card_view:cardCornerRadius="10dp"
             android:layout_below="@+id/edit"
-            card_view:cardBackgroundColor="#dee5ef"
+            card_view:cardBackgroundColor="@color/colorAccent"
             android:layout_marginTop="7dp">
 
         <ScrollView

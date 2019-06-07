@@ -63,8 +63,7 @@ public class DisplayAllFood extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
-
-                        int i = 1;
+                        
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -76,6 +75,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             TextView textView0 = new TextView(context);
                             textView0.setText(name);
+                            textView0.setTextSize(15);
                             textView0.setGravity(0);
                             textView0.setPadding(60, 5, 20, 5);
                             textView0.setTextColor(0xFF000000);
@@ -83,16 +83,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             TextView textView1 = new TextView(context);
                             textView1.setText(rating);
+                            textView0.setTextSize(15);
                             textView1.setGravity(0);
                             textView1.setPadding(60, 5, 20, 5);
                             textView1.setTextColor(0xFF000000);
                             row.addView(textView1, 1);
 
                             table.addView(row);
-
-                            final int final_row = i;
-
-                            i++;
                         }
                     }
                     @Override
@@ -104,7 +101,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -116,6 +112,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             TextView textView0 = new TextView(context);
                             textView0.setText(name);
+                            textView0.setTextSize(15);
                             textView0.setGravity(0);
                             textView0.setPadding(60, 5, 20, 5);
                             textView0.setTextColor(0xFF000000);
@@ -123,16 +120,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             TextView textView1 = new TextView(context);
                             textView1.setText(rating);
+                            textView0.setTextSize(15);
                             textView1.setGravity(0);
                             textView1.setPadding(60, 5, 20, 5);
                             textView1.setTextColor(0xFF000000);
                             row.addView(textView1, 1);
 
                             table.addView(row);
-
-                            final int final_row = i;
-
-                            i++;
                         }
                     }
                     @Override
@@ -158,7 +152,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -171,6 +164,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView0 = new TextView(context);
                                 textView0.setText(name);
+                                textView0.setTextSize(15);
                                 textView0.setGravity(0);
                                 textView0.setPadding(60, 5, 20, 5);
                                 textView0.setTextColor(0xFF000000);
@@ -178,16 +172,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView1 = new TextView(context);
                                 textView1.setText(rating);
+                                textView0.setTextSize(15);
                                 textView1.setGravity(0);
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
 
                                 table.addView(row);
-
-                                final int final_row = i;
-
-                                i++;
                             }
                         }
                     }
@@ -200,7 +191,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -213,6 +203,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView0 = new TextView(context);
                                 textView0.setText(name);
+                                textView0.setTextSize(15);
                                 textView0.setGravity(0);
                                 textView0.setPadding(60, 5, 20, 5);
                                 textView0.setTextColor(0xFF000000);
@@ -220,16 +211,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView1 = new TextView(context);
                                 textView1.setText(rating);
+                                textView0.setTextSize(15);
                                 textView1.setGravity(0);
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
 
                                 table.addView(row);
-
-                                final int final_row = i;
-
-                                i++;
                             }
                         }
                     }
@@ -256,7 +244,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -269,6 +256,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView0 = new TextView(context);
                                 textView0.setText(name);
+                                textView0.setTextSize(15);
                                 textView0.setGravity(0);
                                 textView0.setPadding(60, 5, 20, 5);
                                 textView0.setTextColor(0xFF000000);
@@ -276,16 +264,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView1 = new TextView(context);
                                 textView1.setText(rating);
+                                textView0.setTextSize(15);
                                 textView1.setGravity(0);
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
 
                                 table.addView(row);
-
-                                final int final_row = i;
-
-                                i++;
                             }
                         }
                     }
@@ -298,7 +283,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -311,6 +295,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView0 = new TextView(context);
                                 textView0.setText(name);
+                                textView0.setTextSize(15);
                                 textView0.setGravity(0);
                                 textView0.setPadding(60, 5, 20, 5);
                                 textView0.setTextColor(0xFF000000);
@@ -318,16 +303,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView1 = new TextView(context);
                                 textView1.setText(rating);
+                                textView0.setTextSize(15);
                                 textView1.setGravity(0);
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
 
                                 table.addView(row);
-
-                                final int final_row = i;
-
-                                i++;
                             }
                         }
                     }
@@ -354,7 +336,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -367,6 +348,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView0 = new TextView(context);
                                 textView0.setText(name);
+                                textView0.setTextSize(15);
                                 textView0.setGravity(0);
                                 textView0.setPadding(60, 5, 20, 5);
                                 textView0.setTextColor(0xFF000000);
@@ -374,16 +356,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView1 = new TextView(context);
                                 textView1.setText(rating);
+                                textView0.setTextSize(15);
                                 textView1.setGravity(0);
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
 
                                 table.addView(row);
-
-                                final int final_row = i;
-
-                                i++;
                             }
                         }
                     }
@@ -396,7 +375,6 @@ public class DisplayAllFood extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ArrayList<String> items = new ArrayList<>();
 
-                        int i = 1;
                         for(DataSnapshot dsp : dataSnapshot.getChildren()) {
                             items.add(String.valueOf(dsp.getValue()));
 
@@ -409,6 +387,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView0 = new TextView(context);
                                 textView0.setText(name);
+                                textView0.setTextSize(15);
                                 textView0.setGravity(0);
                                 textView0.setPadding(60, 5, 20, 5);
                                 textView0.setTextColor(0xFF000000);
@@ -416,16 +395,13 @@ public class DisplayAllFood extends AppCompatActivity {
 
                                 TextView textView1 = new TextView(context);
                                 textView1.setText(rating);
+                                textView0.setTextSize(15);
                                 textView1.setGravity(0);
                                 textView1.setPadding(60, 5, 20, 5);
                                 textView1.setTextColor(0xFF000000);
                                 row.addView(textView1, 1);
 
                                 table.addView(row);
-
-                                final int final_row = i;
-
-                                i++;
                             }
                         }
                     }
@@ -463,6 +439,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             TextView textView0 = new TextView(context);
                             textView0.setText(name);
+                            textView0.setTextSize(15);
                             textView0.setGravity(0);
                             textView0.setPadding(60, 5, 20, 5);
                             textView0.setTextColor(0xFF000000);
@@ -470,6 +447,7 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             TextView textView1 = new TextView(context);
                             textView1.setText(rating);
+                            textView0.setTextSize(15);
                             textView1.setGravity(0);
                             textView1.setPadding(60, 5, 20, 5);
                             textView1.setTextColor(0xFF000000);
@@ -527,12 +505,10 @@ public class DisplayAllFood extends AppCompatActivity {
                 startActivity(home);
                 break;
             case R.id.chat:
-
                 Intent chat = new Intent(this, LatestMessagesActivity.class);
                 startActivity(chat);
                 break;
             case R.id.tips:
-                Toast.makeText( getApplicationContext(),"resources", Toast.LENGTH_SHORT).show();
                 Intent tips = new Intent(this, Resources.class);
                 startActivity(tips);
                 break;
@@ -544,7 +520,6 @@ public class DisplayAllFood extends AppCompatActivity {
     public void buttonClicked(String food_name, DatabaseReference db) {
         db.child(food_name).setValue(null);
         Toast toast = Toast.makeText( getApplicationContext(),"Food deleted!", Toast.LENGTH_SHORT);
-        //toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
 }
