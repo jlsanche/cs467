@@ -17,7 +17,7 @@
 
     <!-- menu item theme -->
     <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background">#c0d1d8</item>
+        <item name="android:background">#e2e2e2</item>
         <item name="overlapAnchor">false</item>
         <item name="android:dropDownVerticalOffset">-4dp</item>
     </style>

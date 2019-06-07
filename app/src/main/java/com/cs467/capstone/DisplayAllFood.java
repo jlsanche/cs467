@@ -455,7 +455,6 @@ public class DisplayAllFood extends AppCompatActivity {
 
                             Button addButton = new Button(context);
                             addButton.setText("delete");
-                            addButton.setTextColor(0xFF000000);
                             row.addView(addButton, 2);
 
                             table.addView(row);
